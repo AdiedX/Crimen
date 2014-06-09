@@ -1,0 +1,15 @@
+<!-- <div ng-include="'index'"></div> -->
+<div class="header" ng-controller="NavbarCtrl">
+  <ul class="nav nav-pills pull-right">
+    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+<!--         <a ng-href="{{item.link}}">{{item.title}}</a>
+ -->    </li>
+  </ul>
+  <p id="header">Crīmen<p>
+  <p id="sub-header">Big Apple's Crime Map</p>
+  <br>
+</div>
+
+
+<!-- How did the horizontal lines come to exist? -->
+<!--
