@@ -1,3 +1,5 @@
+
+
 /* Space out content a bit */
 
 /*html {
@@ -129,8 +131,8 @@ body
 
 .angular-google-map-container
 {
-    height: 600px;
-    width:1600px;
+    height: 400px;
+    width: 100%;
 
 }
 
