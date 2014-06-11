@@ -1,14 +1,26 @@
 
 
 <div ng-include="'partials/navbar'"></div>
-    <google-map center="map.center" zoom="map.zoom" draggable="true"        options="map.options" control="mapControl">
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-8 ">
+        <google-map center="map.center" zoom="map.zoom" draggable="true"        options="map.options" control="mapControl">
+        </google-map>
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+</div>
 
     <!-- THIS IS SUPPOSED TO WORK AND IS THE BEST WAY TO DO MARKERS.  FIGURE IT OUT!!! -->
 <!--         <markers idkey="'id'" models='crimeMarkers' coords="'self'" icon="'icon'" click="'onClicked'"></markers> -->
 
  <!--         <marker ng-repeat="marker in crimeMarkers" coords="{longitude: marker.longitude, latitude: marker.latitude}" click="'onClicked'" doCluster="doClusterRandomMarkers" clusterOptions="clusterOptions"></marker> -->
 
-    </google-map>
 
 </div>
 

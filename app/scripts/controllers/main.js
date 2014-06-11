@@ -47,12 +47,34 @@ angular.module('crimespaceAngularApp')
             var markers =  _.map(crimeData, function(element)
             {
                 var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
-                return new google.maps.Marker({
+
+
+
+
+
+
+                var marker = new google.maps.Marker({
                     position: myLatlng,
                     title: element.type
-                })
+                });
 
+                //---------------------------------------------
+                // INFO WINDOWS:
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<div style="width: 150px; height: 60px; font-size: 12px; font-family: Courier;"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>'
+                });
+
+                google.maps.event.addListener(marker, 'click', function()
+                {
+                    infowindow.open(map, marker);
+                });
+
+                //---------------------------------------------
+                return marker;
             });
+
+            // Need to add options to the following cluster constructor:
             var mc = new MarkerClusterer(map, markers);
 
             // CLUSTERING ALGORITHM:
