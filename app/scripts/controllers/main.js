@@ -32,16 +32,28 @@ angular.module('crimespaceAngularApp')
 
         $http.get('/api/getCrimeData').success(function(crimeData)
         {
-            crimeData.forEach(function(element)
+            // JUST GENERATES THE MARKERS:
+            // crimeData.forEach(function(element)
+            // {
+            //     var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
+            //     var marker = new google.maps.Marker({
+
+            //         position: myLatlng,
+            //         map: map,
+            //         title: element.type
+            //     });
+            // });
+
+            var markers =  _.map(crimeData, function(element)
             {
                 var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
-                var marker = new google.maps.Marker({
-
+                return new google.maps.Marker({
                     position: myLatlng,
-                    map: map,
                     title: element.type
-                });
+                })
+
             });
+            var mc = new MarkerClusterer(map, markers);
 
             // CLUSTERING ALGORITHM:
             // var markers = [];
@@ -52,6 +64,9 @@ angular.module('crimespaceAngularApp')
             //     markers.push(marker);
             // }
             // var markerCluster = new MarkerClusterer(map, markers);
+
+
+
             // // We specify a number of option to fine-tune the marker manager's performance:
             // var mcOptions = {gridSize: 50, maxZoom: 15};
 
@@ -64,7 +79,7 @@ angular.module('crimespaceAngularApp')
             //     // Why this is wrong:
             //     // I need to push markers from a specific geographic area
             //     // This methods currently selects markers in order
-            //     markers.push(markers);
+            //     markers.push(markers.crime);
             // });
 
             // //
