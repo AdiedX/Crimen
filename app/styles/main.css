@@ -8,8 +8,8 @@
 
 body
 {
-  padding-top: 20px;
-  padding-bottom: 20px;
+/*  padding-top: 20px;
+  padding-bottom: 20px;*/
   font-family: "Open Sans Condensed", Times;
   font-weight: lighter;
   background: url(/views/partials/nyc-1.jpg);
@@ -23,20 +23,43 @@ body
     -webkit-font-smoothing: antialiased;
 }
 
-.container {
-    width: 90%;
+.navigation
+{
+    list-style: none;
+    color: #CCC;
+    font-size: 20px;
+    display: block;
+    /*padding: 10px 10px;*/
+    /*margin-left: -30px;*/
+}
+
+#nav-list
+{
+    margin: 0px 60px;
+}
+
+.container
+{
+    width: 100%;
+}
+
+#header-whole
+{
+    margin: 40px 60px;
 }
 
 #header
 {
     color: #CCC;
     font-size: 40px;
+    /*margin-left: -20px;*/
 }
 
 #sub-header
 {
     color: #CCC;
     font-size: 20px;
+    /*margin-left: -20px;*/
 }
 
 .header
@@ -46,51 +69,44 @@ body
 
 #add-input
 {
-    margin-left: -40px;
+    width: 100%;
+    margin-left: 43px;
 }
 /*.ng-scope
 {
 
 }*/
 
-.footer
-{
-    clear: both;
-}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
+/*.header,
 .marketing,
 .footer
 {
   padding-left: 15px;
   padding-right: 15px;
-}
+}*/
 
 /* Custom page header */
-.header
-{
-/*  border-bottom: 2px solid #CCC;
-  vertical-align: center;
-  margin: auto;*/
-}
+
 
 /* Make the masthead heading the same height as the navigation */
-.header h3
+/*.header h3
 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
-}
+}*/
 
 /* Custom page footer */
-.footer
+/*.footer
 {
   padding-top: 19px;
   color: #777;
-  margin-top: -100px;
+  margin-top: -100px;*/
 /*  border-top: 1px solid #e5e5e5;
-*/}
+}*/
 
 /* Customize container */
 /*@media (min-width: 768px)
@@ -104,45 +120,75 @@ body
   margin: 30px 0;
 }
 
-/*.angular-google-map
+.angular-google-map
 {
     width: 100%;
     height: 100%;
-}*/
+}
 
 /* Main marketing message and sign up button */
-.jumbotron {
+/*.jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
-}
+}*/
 
 /* Supporting marketing content */
-.marketing {
+/*.marketing {
   margin: 40px 0;
 }
 .marketing p + h4 {
   margin-top: 28px;
 }
-
+*/
 /* Responsive: Portrait tablets and up */
 
-.angular-google-map-container
-{
-    height: 600px;
-    width: 100%;
-    margin-top: -100px;
-    margin-left: -50px;
+.angular-google-map-container {
+  height: 100%;
+  width: 100%;
+/*  margin-top: 15px;
+  margin-left: -50px;*/
+  position: absolute;
+/*  left: 200px;
+  right: 0px;
+  width: auto;*/
 }
 
-/*.height100 {
-    height: 100%;
+/*.angular-google-map
+{
+    height: 90%;
+    width: 100%;
 }*/
 
+.ng-scope
+{
+    height: 100%;
+}
 
+.height100
+{
+    height: 100%;
+}
 
+.no-padding
+{
+    padding: 0px;
+}
 
+#main
+{
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+
+/*#about-content-div
+{
+    background:
+}*/
 

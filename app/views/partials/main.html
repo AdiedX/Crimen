@@ -1,23 +1,26 @@
 
 
-<div ng-include="'partials/navbar'"></div>
-<div class="row height100">
-    <div class="col-md-2">
-      <p id="add-input">
-        <input type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details" style="width: 60%"/>
-      </p>
-    </div>
+    <div class="row height100">
+        <div class="col-md-2">
+            <div id="header-whole">
+                <p id="header">Crīmen<p>
+                <p id="sub-header">Big Apple's Crime Map</p>
+            </div>
+            <p id="add-input" class="height100">
+                <input type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details" style="width: 60%"/>
+            </p>
+        </div>
 
-    <div class="col-md-8 height100">
-        <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true"        options="map.options" control="mapControl">
-        </google-map>
-        <!-- <div class="height100" style="background-color:red"></div> -->
-    </div>
+        <div class="col-md-10 height100 no-padding">
+            <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
+            </google-map>
+            <!-- <div class="height100" style="background-color:red"></div> -->
+        </div>
 
-    <div class="col-md-2">
+<!--         <div class="col-md-2">
 
+        </div> -->
     </div>
-</div>
     <!-- THIS IS SUPPOSED TO WORK AND IS THE BEST WAY TO DO MARKERS.  FIGURE IT OUT!!! -->
 <!--         <markers idkey="'id'" models='crimeMarkers' coords="'self'" icon="'icon'" click="'onClicked'"></markers> -->
 
