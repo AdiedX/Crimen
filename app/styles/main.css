@@ -39,10 +39,19 @@ body
     font-size: 20px;
 }
 
-.ng-scope
+.header
+{
+    margin-left: -40px;
+}
+
+#add-input
+{
+    margin-left: -40px;
+}
+/*.ng-scope
 {
 
-}
+}*/
 
 .footer
 {
@@ -123,11 +132,15 @@ body
 
 .angular-google-map-container
 {
-    height: 800px;
+    height: 600px;
     width: 100%;
     margin-top: -100px;
     margin-left: -50px;
 }
+
+/*.height100 {
+    height: 100%;
+}*/
 
 
 

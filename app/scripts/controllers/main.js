@@ -27,6 +27,16 @@ angular.module('crimespaceAngularApp')
     // Pass into Angular Google Maps:
     $scope.mapControl = {};
     // var str_title = element.type + ' ' + element.month + ', ' + element.year;
+
+    $scope.$watch('details', function(details) {
+        console.log(details);
+        // debugger;
+        $scope.map.center = {
+            latitude: details.geometry.location.lat(),
+            longitude: details.geometry.location.lng()
+        };
+        $scope.map.zoom = 14;
+    });
     $scope.$watch('mapControl', function(mapControl){
         var map = $scope.mapControl.getGMap();
 
@@ -62,7 +72,7 @@ angular.module('crimespaceAngularApp')
                 // INFO WINDOWS:
 
                 var infowindow = new google.maps.InfoWindow({
-                    content: '<div style="width: 150px; height: 60px; font-size: 12px; font-family: Courier;"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>'
+                    content: '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>'
                 });
 
                 google.maps.event.addListener(marker, 'click', function()
@@ -112,6 +122,21 @@ angular.module('crimespaceAngularApp')
   });
 
 
+// // This function was written by Val Schuman of http://valschuman.blogspot.com/
+// function toCamelCase(s) {
+//     // remove all characters that should not be in a variable name
+//     // as well underscores an numbers from the beginning of the string
+//     s = s.replace(/([^a-zA-Z0-9_\- ])|^[_0-9]+/g, "").trim().toLowerCase();
+//     // uppercase letters preceeded by a hyphen or a space
+//     s = s.replace(/([ -]+)([a-zA-Z0-9])/g, function(a,b,c) {
+//         return c.toUpperCase();
+//     });
+//     // uppercase letters following numbers
+//     s = s.replace(/([0-9]+)([a-zA-Z])/g, function(a,b,c) {
+//         return b + c.toUpperCase();
+//     });
+//     return s;
+// }​
 
 
 

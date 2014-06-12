@@ -4,7 +4,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js height100"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,12 +31,12 @@
 
 <!-- END D3 CODE -->
 
-<body ng-app="crimespaceAngularApp">
+<body ng-app="crimespaceAngularApp" class="height100">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
-    <div class="container" ng-view="">
+    <div class="container height100" ng-view="">
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -74,9 +74,12 @@
         <script src="scripts/controllers/navbar.js"></script>
         <!-- endbuild -->
 
-        <script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
+        <script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>-
         <script src='bower_components/lodash/dist/lodash.underscore.min.js'></script>
         <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
 
+
+       <script type="text/javascript" src="scripts/ngAutoComplete.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 </body>
 </html>

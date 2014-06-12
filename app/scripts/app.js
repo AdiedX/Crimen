@@ -7,7 +7,8 @@ angular.module('crimespaceAngularApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'google-maps'
+  'google-maps',
+  'ngAutocomplete'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
