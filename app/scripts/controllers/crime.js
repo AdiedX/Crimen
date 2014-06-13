@@ -3,13 +3,11 @@
 'use strict';
 
 angular.module('crimespaceAngularApp')
-  .controller('CrimeCtrl', function ($scope, $http)
+  .controller('CrimeCtrl', function ($scope)
   {
-        var margin = {top: 40, right: 20, bottom: 30, left: 40},
-            width = 960 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
-
-        var formatPercent = d3.format(".0%");
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
         var x = d3.scale.ordinal()
             .rangeRoundBands([0, width], .1);
@@ -24,26 +22,17 @@ angular.module('crimespaceAngularApp')
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient("left")
-            .tickFormat(formatPercent);
+            .ticks(10, "%");
 
-        var tip = d3.tip()
-          .attr('class', 'd3-tip')
-          .offset([-10, 0])
-          .html(function(d) {
-            return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
-          })
-
-        var svg = d3.select("body").append("svg")
+        var svg = d3.select("#background-dim-md-10").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
           .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        svg.call(tip);
-
-        d3.tsv("/data/Burglary.tsv", type, function(error, data) {
-          x.domain(data.map(function(d) { return d.letter; }));
-          y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+        d3.csv("/data/Burglary.csv", type, function(error, data) {
+          x.domain(data.map(function(d) { return d.YEAR; }));
+          y.domain([0, d3.max(data, function(d) { return parseInt(d.BURGLARY); })]);
 
           svg.append("g")
               .attr("class", "x axis")
@@ -59,17 +48,17 @@ angular.module('crimespaceAngularApp')
               .attr("dy", ".71em")
               .style("text-anchor", "end")
               .text("Frequency");
-
+          console.log(data);
           svg.selectAll(".bar")
               .data(data)
             .enter().append("rect")
               .attr("class", "bar")
-              .attr("x", function(d) { return x(d.letter); })
+              .attr("x", function(d) { return x(d.YEAR); })
               .attr("width", x.rangeBand())
-              .attr("y", function(d) { return y(d.frequency); })
-              .attr("height", function(d) { return height - y(d.frequency); })
-              .on('mouseover', tip.show)
-              .on('mouseout', tip.hide)
+              .attr("y", function(d) {
+                console.log(parseInt(d.BURGLARY));
+                return y(parseInt(d.BURGLARY)); })
+              .attr("height", function(d) { return height - y(parseInt(d.BURGLARY)); });
 
         });
 
