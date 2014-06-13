@@ -17,7 +17,10 @@ angular.module('crimespaceAngularApp', [
         controller: 'MainCtrl'
       }).when('/about', {
         templateUrl: 'partials/about'
-        // COntroller
+        // Controller
+      }).when('/crime', {
+        templateUrl: 'partials/crime',
+        controller: 'CrimeCtrl'
       })
       .otherwise({
         redirectTo: '/'

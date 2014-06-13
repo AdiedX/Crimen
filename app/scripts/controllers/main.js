@@ -58,11 +58,6 @@ angular.module('crimespaceAngularApp')
             {
                 var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
 
-
-
-
-
-
                 var marker = new google.maps.Marker({
                     position: myLatlng,
                     title: element.type
