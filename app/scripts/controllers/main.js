@@ -85,7 +85,9 @@ angular.module('crimespaceAngularApp')
             });
 
             // Need to add options to the following cluster constructor:
-            var mc = new MarkerClusterer(map, markers);
+            var mc = new MarkerClusterer(map, markers, {
+                maxZoom: 16
+            });
 
             // CLUSTERING ALGORITHM:
             // var markers = [];
