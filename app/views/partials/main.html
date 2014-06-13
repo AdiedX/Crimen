@@ -4,14 +4,17 @@
         <div class="col-md-2">
             <div id="header-whole">
                 <p id="header">Crīmen<p>
-                <p id="sub-header">Big Apple's Crime Map</p>
+                <p id="sub-header">NYC's Crime Map</p>
             </div>
             <p id="add-input" class="height100">
                 <input type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details" style="width: 60%"/>
             </p>
-            <p id="nav-list">
-            <a href="/about">About</a>
-            <a href="/crimestatistics">Crime Statistics in D3</a>
+            <br>
+            <br>
+            <p class="navigation" id="nav-list">
+                <a href="/about">About</a>
+                <br>
+                <a href="/crimestatistics">Crime Statistics in D3</a>
             <p>
 
         </div>
@@ -19,12 +22,11 @@
         <div class="col-md-10 height100 no-padding">
             <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
             </google-map>
-            <!-- <div class="height100" style="background-color:red"></div> -->
+
         </div>
 
-<!--         <div class="col-md-2">
-
-        </div> -->
+<!--        <div class="col-md-2">
+            </div> -->
     </div>
     <!-- THIS IS SUPPOSED TO WORK AND IS THE BEST WAY TO DO MARKERS.  FIGURE IT OUT!!! -->
 <!--         <markers idkey="'id'" models='crimeMarkers' coords="'self'" icon="'icon'" click="'onClicked'"></markers> -->
@@ -33,13 +35,6 @@
 
 
 </div>
-
-<!--   <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p> -->
 
 <div class="row marketing">
 
@@ -52,7 +47,3 @@
   <!-- </div> -->
 </div>
 
-
-<div class="footer">
-  <p>Created by Adi Sivasankaran Using the MEAN Stack</p>
-</div>

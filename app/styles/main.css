@@ -38,6 +38,16 @@ body
     margin: 0px 60px;
 }
 
+#nav-list > a
+{
+    color: #CCC;
+}
+
+/*p.navigation
+{
+    margin-right: -5px;
+}
+*/
 .container
 {
     width: 100%;
@@ -51,14 +61,14 @@ body
 #header
 {
     color: #CCC;
-    font-size: 40px;
+    font-size: 60px;
     /*margin-left: -20px;*/
 }
 
 #sub-header
 {
     color: #CCC;
-    font-size: 20px;
+    font-size: 30px;
     /*margin-left: -20px;*/
 }
 
@@ -146,7 +156,8 @@ body
 */
 /* Responsive: Portrait tablets and up */
 
-.angular-google-map-container {
+.angular-google-map-container
+{
   height: 100%;
   width: 100%;
 /*  margin-top: 15px;
@@ -185,6 +196,19 @@ body
     bottom:0px;
     left:0px;
     right:0px;
+}
+
+#about-text
+{
+    color: #EEE;
+    font-size: 35px;
+    margin-left: 50px;
+}
+
+#background-dim-md-10
+{
+    background-color:#000;
+    opacity:0.7;
 }
 
 /*#about-content-div
