@@ -1,7 +1,7 @@
 Crimen
 ======
 
-Big Apple's Crime Map
+
 This web application maps the crime in New York City.  This map was built using the MEAN stack (MongoDB, Express.js, Angular.js, Node.js).  
 
 Fork this repository.  
