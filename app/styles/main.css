@@ -148,6 +148,13 @@ body
     opacity:0.7;
 }
 
+#background-dim-md-10 > p
+{
+    font-size: 2.5em;
+    color: #EEE;
+    margin-left: 40px;
+}
+
 /*------------------*/
 /*ICONS IN THE ABOUT PAGE*/
 /*------------------*/
@@ -179,7 +186,7 @@ body
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: #EEE;
   shape-rendering: crispEdges;
 }
 
