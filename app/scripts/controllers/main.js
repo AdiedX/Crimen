@@ -3,10 +3,8 @@
 'use strict';
 
 angular.module('crimespaceAngularApp')
-  .controller('MainCtrl', function ($scope, $http)
-  {
-    $http.get('/api/getCrimeData').success(function(crimeData)
-    {
+  .controller('MainCtrl', function ($scope, $http){
+    $http.get('/api/getCrimeData').success(function(crimeData){
         console.log(crimeData.length);
         $scope.crimeMarkers = crimeData;
         // $scope.$apply();
@@ -40,8 +38,7 @@ angular.module('crimespaceAngularApp')
     $scope.$watch('mapControl', function(mapControl){
         var map = $scope.mapControl.getGMap();
 
-        $http.get('/api/getCrimeData').success(function(crimeData)
-        {
+        $http.get('/api/getCrimeData').success(function(crimeData){
             // JUST GENERATES THE MARKERS:
             // crimeData.forEach(function(element)
             // {
@@ -54,8 +51,7 @@ angular.module('crimespaceAngularApp')
             //     });
             // });
 
-            var markers =  _.map(crimeData, function(element)
-            {
+            var markers =  _.map(crimeData, function(element){
                 var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
 
                 var marker = new google.maps.Marker({
@@ -70,8 +66,7 @@ angular.module('crimespaceAngularApp')
                     content: '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>'
                 });
 
-                google.maps.event.addListener(marker, 'click', function()
-                {
+                google.maps.event.addListener(marker, 'click', function(){
                     infowindow.open(map, marker);
                 });
 

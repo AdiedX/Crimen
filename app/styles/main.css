@@ -43,6 +43,11 @@ body
     color: #CCC;
 }
 
+#nav-list > a:hover
+{
+    color: #FFF;
+    text-decoration: none;
+}
 /*p.navigation
 {
     margin-right: -5px;
@@ -61,14 +66,14 @@ body
 #header
 {
     color: #CCC;
-    font-size: 4em;
+    font-size: 3em;
     /*margin-left: -20px;*/
 }
 
 #sub-header
 {
     color: #CCC;
-    font-size: 2em;
+    font-size: 1.5em;
     /*margin-left: -20px;*/
 }
 
@@ -192,4 +197,9 @@ body
 
 .x.axis path {
   display: none;
+}
+
+.tick text
+{
+    color: #EEE;
 }
