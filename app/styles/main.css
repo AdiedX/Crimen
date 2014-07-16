@@ -1,30 +1,28 @@
 
 
-/* Space out content a bit */
 
-/*html {
 
-}*/
-
-body
-{
+body{
 /*  padding-top: 20px;
   padding-bottom: 20px;*/
-  font-family: "Open Sans Condensed", Times;
-  font-weight: lighter;
-  background: url(/views/partials/nyc-1.jpg);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    font-family: "Open Sans Condensed", Times;
+    font-weight: lighter;
+    background: url(/views/partials/dark-maiden.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
     /* Makes font crispy! */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
-.navigation
-{
+/* MAIN PAGE */
+
+
+
+.navigation{
     list-style: none;
     color: #CCC;
     font-size: 1.5em;
@@ -33,18 +31,15 @@ body
     /*margin-left: -30px;*/
 }
 
-#nav-list
-{
+#main-navList{
     margin: 0px 60px;
 }
 
-#nav-list > a
-{
+#main-navList > a{
     color: #CCC;
 }
 
-#nav-list > a:hover
-{
+#main-navList > a:hover{
     color: #FFF;
     text-decoration: none;
 }
@@ -53,53 +48,50 @@ body
     margin-right: -5px;
 }
 */
-.container
-{
+.container{
     width: 100%;
 }
 
-#header-whole
-{
-    margin: 40px 60px;
+#main-container{
+    padding-top: 20%;
 }
 
-#header
-{
-    color: #CCC;
+#main-sidebar{
+    text-align: center;
+    padding: 0px;
+}
+
+#main-header{
+    color: #FFF;
     font-size: 3em;
-    /*margin-left: -20px;*/
+    margin: 0 auto;
 }
 
-#sub-header
-{
-    color: #CCC;
+#main-subHeader{
+    color: #FFF;
     font-size: 1.5em;
     /*margin-left: -20px;*/
 }
 
-.header
-{
+.header{
     margin-left: -40px;
 }
 
-#add-input
-{
+#main-addInput{
     width: 100%;
-    margin-left: 50px;
+    color: #000;
 }
 
 .container-narrow > hr {
   margin: 30px 0;
 }
 
-.angular-google-map
-{
+.angular-google-map{
     width: 100%;
     height: 100%;
 }
 
-.angular-google-map-container
-{
+.angular-google-map-container{
   height: 100%;
   width: 100%;
 /*  margin-top: 15px;
@@ -116,23 +108,19 @@ body
     width: 100%;
 }*/
 
-.ng-scope
-{
+.ng-scope{
     height: 100%;
 }
 
-.height100
-{
+.height100{
     height: 100%;
 }
 
-.no-padding
-{
+.no-padding{
     padding: 0px;
 }
 
-#main
-{
+#main{
     position:fixed;
     top:0px;
     bottom:0px;
@@ -140,21 +128,18 @@ body
     right:0px;
 }
 
-#about-text
-{
+#about-text{
     color: #EEE;
     font-size: 35px;
     margin-left: 50px;
 }
 
-#background-dim-md-10
-{
+#background-dim-md-10{
     background-color:#000;
     opacity:0.7;
 }
 
-#background-dim-md-10 > p
-{
+#background-dim-md-10 > p{
     font-size: 2.5em;
     color: #EEE;
     margin-left: 40px;

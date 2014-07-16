@@ -1,27 +1,33 @@
 
 
     <div class="row height100">
-        <div class="col-md-2">
-            <div id="header-whole">
-                <p id="header">Crimen<p>
-                <p id="sub-header">NYC's Crime Map</p>
-            </div>
-            <p id="add-input" class="height100">
-                <input type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details" style="width: 60%"/>
-            </p>
-            <br>
-            <br>
-            <p class="navigation" id="nav-list">
-                <a href="/">Map</a>
+        <div id="main-sidebar" class="col-md-2">
+            <div id="main-container">
+                <span id="main-header">CRIMEN</span>
                 <br>
-                <a href="/about">About</a>
+                <span id="main-subHeader">
+                    NYC's Crime Map
+                </span>
+                <br><br>
+                <span id="main-addInput" class="height100">
+                    <input type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details"/>
+                </span>
+                <br><br>
+            </div>
+
+            <br>
+            <br>
+            <p class="navigation" id="main-navList">
+                <a href="/">MAP</a>
+                <br>
+                <a href="/about">ABOUT</a>
                 <br>
                 <a href="/crime">D3</a>
             <p>
             <br>
             <br>
             <br>
-                <ul class="about-icons">
+<!--                 <ul class="about-icons">
                     <li class="twitter">
                         <a href="https://twitter.com/hacker_adi">
                             <span class="fa fa-twitter fa-2x" style="color: #CCC"></span>
@@ -32,34 +38,19 @@
                             <span class="fa fa-github fa-2x" style="color: #CCC"></span>
                         </a>
                     </li>
-                </ul>
+                </ul> -->
         </div>
 
         <div class="col-md-10 height100 no-padding">
             <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
             </google-map>
-
         </div>
-
-<!--        <div class="col-md-2">
-            </div> -->
     </div>
+
     <!-- THIS IS SUPPOSED TO WORK AND IS THE BEST WAY TO DO MARKERS.  FIGURE IT OUT!!! -->
 <!--         <markers idkey="'id'" models='crimeMarkers' coords="'self'" icon="'icon'" click="'onClicked'"></markers> -->
 
  <!--         <marker ng-repeat="marker in crimeMarkers" coords="{longitude: marker.longitude, latitude: marker.latitude}" click="'onClicked'" doCluster="doClusterRandomMarkers" clusterOptions="clusterOptions"></marker> -->
 
 
-</div>
-
-<div class="row marketing">
-
-  <!-- <div ng-repeat="thing in awesomeThings"> -->
-    <!-- What is thing? -->
-<!--       <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p> -->
-
-
-  <!-- </div> -->
-</div>
 
