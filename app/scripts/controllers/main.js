@@ -9,12 +9,13 @@ angular.module('crimespaceAngularApp')
         $scope.crimeMarkers = crimeData;
         // $scope.$apply();
     });
+    // Add map object to the $scope:
     $scope.map = {
             center: {
                 latitude: 40.7127,
                 longitude: -74.0059
             },
-            zoom: 8,
+            zoom: 10,
             options: {
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
@@ -22,10 +23,14 @@ angular.module('crimespaceAngularApp')
         };
 
     // SETTING UP MARKERS THE OLD SCHOOL WAY:
-    // Pass into Angular Google Maps:
+
+
+    // This empty object is for the "control" attribute of the google-maps angular directive which will allow us to obtain the direct reference of the google map instance being used by the directive:
     $scope.mapControl = {};
+
     // var str_title = element.type + ' ' + element.month + ', ' + element.year;
 
+    // Connect ng-autoComplete output to viewable map area:
     $scope.$watch('details', function(details) {
         console.log(details);
         // debugger;
@@ -33,12 +38,16 @@ angular.module('crimespaceAngularApp')
             latitude: details.geometry.location.lat(),
             longitude: details.geometry.location.lng()
         };
-        $scope.map.zoom = 14;
+        $scope.map.zoom = 16;
     });
+
+    // '$watch' registers a listener callback to be called whenever the watchExpression changes:
     $scope.$watch('mapControl', function(mapControl){
         var map = $scope.mapControl.getGMap();
 
         $http.get('/api/getCrimeData').success(function(crimeData){
+
+            // FROM AN EARLIER ATTEMPT:
             // JUST GENERATES THE MARKERS:
             // crimeData.forEach(function(element)
             // {
@@ -79,6 +88,7 @@ angular.module('crimespaceAngularApp')
                 maxZoom: 16
             });
 
+            // FROM AN EARLIER ATTEMPT:
             // CLUSTERING ALGORITHM:
             // var markers = [];
             // for (var i = 0; i < 100; i++)
