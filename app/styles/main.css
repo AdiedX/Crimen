@@ -20,7 +20,15 @@ body{
 
 /* MAIN PAGE */
 
+#dropdownMenu1{
+    text-decoration: none;
+    color: #BBB;
+}
 
+#dropdownMenu1:hover{
+    color: #FFF;
+    text-decoration: none;
+}
 
 .navigation{
     list-style: none;
@@ -32,7 +40,9 @@ body{
 }
 
 #main-navList{
-    margin: 0px 60px;
+    text-decoration: none;
+    list-style: none;
+
 }
 
 #main-navList > a{
@@ -53,7 +63,7 @@ body{
 }
 
 #main-container{
-    padding-top: 20%;
+    padding-top: 15%;
 }
 
 #main-sidebar{

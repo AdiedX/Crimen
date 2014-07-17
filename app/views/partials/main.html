@@ -11,21 +11,32 @@
                 <br><br>
                 <span id="main-addInput" class="height100">
                     <!-- The 'options' & 'details' are ngAutoComplete attributes -->
-                    <!-- 'details="details"' is were the lat/long information comes from. -->
+                    <!-- 'details="details"' is where the lat/long information comes from -->
                     <input type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details"/>
                 </span>
                 <br><br>
             </div>
 
-            <br>
-            <br>
-            <p class="navigation" id="main-navList">
-                <a href="/">MAP</a>
+            <div class="navigation" id="main-navList">
+                <div class="dropdown">
+                    <a href="#" class="fa fa-tasks crime-type" id="dropdownMenu1" data-toggle="dropdown"></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Rape</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Murder</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Felony Assault</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Grand Larceny</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Robbery</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Burglary</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Grand Larceny of Motor Vehicle</a></li>
+                    </ul>
+                </div>
+
                 <br>
                 <a href="/about">ABOUT</a>
                 <br>
-                <a href="/crime">D3</a>
-            <p>
+                <a href="/crime">CRIME STATISTICS</a>
+            </div>
             <br>
             <br>
             <br>
