@@ -19,11 +19,13 @@
 
             <div class="navigation" id="main-navList">
                 <div class="dropdown">
-                    <a href="#" class="fa fa-tasks crime-type" id="dropdownMenu1" data-toggle="dropdown"></a>
+                    <a target="_blank" href="#" id="dropdownMenu1" data-toggle="dropdown" ng-mouseenter="type=true" ng-mouseleave="type=false">
+                        <span class="fa fa-tasks crime-type"></span>
+                    </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Rape</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Murder</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="">Murder</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Felony Assault</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Grand Larceny</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Robbery</a></li>

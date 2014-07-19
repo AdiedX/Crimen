@@ -7,7 +7,8 @@ body{
   padding-bottom: 20px;*/
     font-family: "Open Sans Condensed", Times;
     font-weight: lighter;
-    background: url(/views/partials/dark-maiden.jpg);
+    /* For background image see body tage in index.html */
+/*    background: url(/views/partials/dark-maiden.jpg);*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -18,7 +19,9 @@ body{
     -webkit-font-smoothing: antialiased;
 }
 
+/*-----------*/
 /* MAIN PAGE */
+/*-----------*/
 
 #dropdownMenu1{
     text-decoration: none;
@@ -42,7 +45,6 @@ body{
 #main-navList{
     text-decoration: none;
     list-style: none;
-
 }
 
 #main-navList > a{
@@ -53,6 +55,7 @@ body{
     color: #FFF;
     text-decoration: none;
 }
+
 /*p.navigation
 {
     margin-right: -5px;
@@ -62,6 +65,15 @@ body{
     width: 100%;
 }
 
+/* This makes main.html position fixed and allows for crime.html to be not fixed */
+div.row.ng-scope{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
 #main-container{
     padding-top: 15%;
 }
@@ -69,6 +81,7 @@ body{
 #main-sidebar{
     text-align: center;
     padding: 0px;
+    /*position: absolute;*/
 }
 
 #main-header{
@@ -106,7 +119,7 @@ body{
   width: 100%;
 /*  margin-top: 15px;
   margin-left: -50px;*/
-  position: absolute;
+  /*position: absolute;*/
 /*  left: 200px;
   right: 0px;
   width: auto;*/
@@ -130,30 +143,59 @@ body{
     padding: 0px;
 }
 
-#main{
-    position:fixed;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px;
-}
-
 #about-text{
     color: #EEE;
     font-size: 35px;
     margin-left: 50px;
 }
 
-#background-dim-md-10{
+/*#background-dim-md-10{
     background-color:#000;
     opacity:0.7;
+}*/
+
+/*------------------*/
+/*    CRIME PAGE    */
+/*------------------*/
+
+.crime-container{
+/*    margin-left: 5%;
+    margin-right: 5%;*/
 }
 
-#background-dim-md-10 > p{
+.crime-container{
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 1000px;
+    width: 100%;
+    /*position: relative;*/
+}
+
+.crime-body{
+    background-color: #FFF;
+    height: 100%;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    /*position: relative;*/
+}
+
+div.container.height100.ng-scope{
+    height: 100%;
+}
+
+#crime-header{
+    text-align: center;
+    padding-top: 7%;
+    font-size: 3em;
+    color: #333;
+}
+
+/*#background-dim-md-10 > p{
     font-size: 2.5em;
     color: #EEE;
     margin-left: 40px;
-}
+}*/
 
 /*------------------*/
 /*ICONS IN THE ABOUT PAGE*/

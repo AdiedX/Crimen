@@ -2,8 +2,9 @@
 
 'use strict';
 
-angular.module('crimespaceAngularApp')
-  .controller('MainCtrl', function ($scope, $http){
+var app = angular.module('crimespaceAngularApp');
+
+app.controller('MainCtrl', function ($scope, $http, $filter){
     $http.get('/api/getCrimeData').success(function(crimeData){
         console.log(crimeData.length);
         $scope.crimeMarkers = crimeData;
@@ -25,14 +26,15 @@ angular.module('crimespaceAngularApp')
     // SETTING UP MARKERS THE OLD SCHOOL WAY:
 
 
-    // This empty object is for the "control" attribute of the google-maps angular directive which will allow us to obtain the direct reference of the google map instance being used by the directive:
+    // This empty object is for the "control" attribute of the google-maps angular directive which will allow us to obtain the direct reference to the google map instance being used by the directive:
     $scope.mapControl = {};
 
     // var str_title = element.type + ' ' + element.month + ', ' + element.year;
 
-    // Connect ng-autoComplete output to viewable map area:
+//--------------------------------------------------
+    // Connect ngAutoComplete output to viewable map area:
     $scope.$watch('details', function(details) {
-        console.log(details);
+        // console.log(details);
         // debugger;
         $scope.map.center = {
             latitude: details.geometry.location.lat(),
@@ -40,26 +42,13 @@ angular.module('crimespaceAngularApp')
         };
         $scope.map.zoom = 16;
     });
+//--------------------------------------------------
 
     // '$watch' registers a listener callback to be called whenever the watchExpression changes:
     $scope.$watch('mapControl', function(mapControl){
         var map = $scope.mapControl.getGMap();
 
         $http.get('/api/getCrimeData').success(function(crimeData){
-
-            // FROM AN EARLIER ATTEMPT:
-            // JUST GENERATES THE MARKERS:
-            // crimeData.forEach(function(element)
-            // {
-            //     var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
-            //     var marker = new google.maps.Marker({
-
-            //         position: myLatlng,
-            //         map: map,
-            //         title: element.type
-            //     });
-            // });
-
             var markers =  _.map(crimeData, function(element){
                 var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
 
@@ -87,60 +76,21 @@ angular.module('crimespaceAngularApp')
             var mc = new MarkerClusterer(map, markers, {
                 maxZoom: 16
             });
-
-            // FROM AN EARLIER ATTEMPT:
-            // CLUSTERING ALGORITHM:
-            // var markers = [];
-            // for (var i = 0; i < 100; i++)
-            // {
-            //     var latLng = new google.maps.LatLng(data.photos[i].latitude, data.photos[i].longitude);
-            //     var marker = new google.maps.Marker({'position': latLng});
-            //     markers.push(marker);
-            // }
-            // var markerCluster = new MarkerClusterer(map, markers);
-
-
-
-            // // We specify a number of option to fine-tune the marker manager's performance:
-            // var mcOptions = {gridSize: 50, maxZoom: 15};
-
-            // // This is where a specific set of markers to be clustered go in:
-            // var markers = [];
-
-            // // For each instance of crime in the database:
-            // crimeData.forEach(function(crime)
-            // {
-            //     // Why this is wrong:
-            //     // I need to push markers from a specific geographic area
-            //     // This methods currently selects markers in order
-            //     markers.push(markers.crime);
-            // });
-
-            // //
-            // var mc = new MarkerClusterer(map, markers, mc);
         });
     });
+});
 
-  });
+// app.filter('murderFilter', function(crimeArray){
+//     crimeArray.
+// });
 
-
-// // This function was written by Val Schuman of http://valschuman.blogspot.com/
-// function toCamelCase(s) {
-//     // remove all characters that should not be in a variable name
-//     // as well underscores an numbers from the beginning of the string
-//     s = s.replace(/([^a-zA-Z0-9_\- ])|^[_0-9]+/g, "").trim().toLowerCase();
-//     // uppercase letters preceeded by a hyphen or a space
-//     s = s.replace(/([ -]+)([a-zA-Z0-9])/g, function(a,b,c) {
-//         return c.toUpperCase();
-//     });
-//     // uppercase letters following numbers
-//     s = s.replace(/([0-9]+)([a-zA-Z])/g, function(a,b,c) {
-//         return b + c.toUpperCase();
-//     });
-//     return s;
-// }​
-
-
-
+// USE A DIRECTIVE TO DISPLAY SPECIFIC CRIMES:
+// app.directive('murder', function(){
+//     return function(scope, element, attrs){
+//         element.bind('click', function(){
+//             scope.crimeData
+//         });
+//     };
+// });
 
 
