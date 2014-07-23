@@ -72,6 +72,8 @@ div.row.ng-scope{
     bottom: 0px;
     left: 0px;
     right: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #main-container{
@@ -187,7 +189,7 @@ div.container.height100.ng-scope{
 #crime-header{
     text-align: center;
     padding-top: 7%;
-    font-size: 3em;
+    font-size: 4em;
     color: #333;
 }
 
@@ -236,7 +238,6 @@ div.container.height100.ng-scope{
   display: none;
 }
 
-.tick text
-{
+.tick text{
     color: #EEE;
 }

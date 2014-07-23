@@ -6,9 +6,7 @@ var app = angular.module('crimespaceAngularApp');
 
 app.controller('MainCtrl', function ($scope, $http, $filter){
     $http.get('/api/getCrimeData').success(function(crimeData){
-        console.log(crimeData.length);
         $scope.crimeMarkers = crimeData;
-        // $scope.$apply();
     });
     // Add map object to the $scope:
     $scope.map = {
@@ -23,19 +21,12 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
             }
         };
 
-    // SETTING UP MARKERS THE OLD SCHOOL WAY:
-
-
     // This empty object is for the "control" attribute of the google-maps angular directive which will allow us to obtain the direct reference to the google map instance being used by the directive:
     $scope.mapControl = {};
-
-    // var str_title = element.type + ' ' + element.month + ', ' + element.year;
 
 //--------------------------------------------------
     // Connect ngAutoComplete output to viewable map area:
     $scope.$watch('details', function(details) {
-        // console.log(details);
-        // debugger;
         $scope.map.center = {
             latitude: details.geometry.location.lat(),
             longitude: details.geometry.location.lng()
@@ -43,6 +34,24 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
         $scope.map.zoom = 16;
     });
 //--------------------------------------------------
+// CUSTOMIZING ICONS
+
+ var circle ={
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: .9,
+    scale: 6,
+    strokeColor: 'black',
+    strokeWeight: 1,
+};
+
+//--------------------------------------------------
+
+
+    var infoWindow = new google.maps.InfoWindow({});
+    // var markerCluster = new MarkerClusterer(map, [], {
+    //             maxZoom: 16
+    //         });
 
     // '$watch' registers a listener callback to be called whenever the watchExpression changes:
     $scope.$watch('mapControl', function(mapControl){
@@ -54,43 +63,125 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
 
                 var marker = new google.maps.Marker({
                     position: myLatlng,
-                    title: element.type
+                    title: element.type,
+                    icon: circle
                 });
 
                 //---------------------------------------------
                 // INFO WINDOWS:
+                var infoContent = '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>';
 
-                var infowindow = new google.maps.InfoWindow({
-                    content: '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>'
-                });
-
-                google.maps.event.addListener(marker, 'click', function(){
-                    infowindow.open(map, marker);
-                });
+                bindInfoWindow(marker, map, infoWindow, infoContent);
 
                 //---------------------------------------------
                 return marker;
             });
 
             // Need to add options to the following cluster constructor:
-            var mc = new MarkerClusterer(map, markers, {
+            var markerCluster = new MarkerClusterer(map, markers, {
                 maxZoom: 16
             });
-        });
+        }); // $http callback
+
+        function bindInfoWindow(marker, map, infoWindow, infoContent){
+            google.maps.event.addListener(marker, 'click', function(){
+                infoWindow.setContent(infoContent);
+                infoWindow.open(map, marker);
+            });
+        }
+    }); // $scope.$watch('mapControl', )
+
+//--------------------------------------------------
+//  EARLIER TRY: FILTERING MARKERS [DIDN'T WORK]
+//--------------------------------------------------
+
+    // $scope.showMarker = function(crimeType){
+    //     for (var i = 0; i < markers.length; i++){
+    //         if(markers[i].title === crimeType){
+    //             markers[i].setVisible(true);
+    //         }
+    //     }
+    //     document.getElementById(crimeType.toLowerCase().replace(/ /g, '') + "-" + "box").checked = true;
+    // };
+
+    // $scope.hideMarker = function(crimeType){
+    //     for (var i = 0; i < markers.length; i++) {
+    //         if(markers[i].title === crimeType){
+    //             markers[i].setVisible(false);
+    //         }
+    //     }
+    //     document.getElementById(crimeType.toLowerCase().replace(/ /g, '') + "-" + "box").checked = false;
+    //     infoWindow.close();
+    // };
+
+    // $scope.checkBoxClicked = function(box, crimeType){
+    //     if(box.checked){
+    //         showMarker(crimeType);
+    //     } else{
+    //         hideMarker(crimeType);
+    //     }
+    // };
+
+// //--------------------------------------------------
+// //  [IN PROGRESS] $filter METHOD:
+
+// $scope.$watch("murderFilter", function(murderFilter){
+//     $http.get('/api/getCrimeData').success(function(crimeData){
+//         $scope.filteredMarkers = $filter('filter')(crimeData, murderFilter);
+//         if(!$scope.filteredMarkers)
+//             return;
+//     });
+// });
+//--------------------------------------------------
+
+}); // End of MainCtrl's scope ...
+
+//--------------------------------------------------
+// FILTER FUNCTIONS:
+
+// #1: Filtering for Murders:
+
+app.filter("murderFilter", function($http){
+        var map = $scope.mapControl.getGMap();
+        $http.get('/api/getCrimeData').success(function(crimeData){
+        return function(){
+                var murderMarkers =  _.map(crimeData, function(element){
+                    if(element.type === "MURDER"){
+                        var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
+
+                        var marker = new google.maps.Marker({
+                            position: myLatlng,
+                            title: element.type,
+                            icon: circle
+                        });
+
+                        //---------------------------------------------
+                        // INFO WINDOWS:
+                        var infoContent = '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>';
+
+                        //---------------------------------------------
+                        return marker;
+                    }
+                });
+                    var markerCluster = new MarkerClusterer(map, murderMarkers, {
+                        maxZoom: 16
+                    });
+            };
     });
 });
 
-// app.filter('murderFilter', function(crimeArray){
-//     crimeArray.
-// });
+//--------------------------------------------------
+// DIRECTIVES
 
-// USE A DIRECTIVE TO DISPLAY SPECIFIC CRIMES:
-// app.directive('murder', function(){
-//     return function(scope, element, attrs){
-//         element.bind('click', function(){
-//             scope.crimeData
-//         });
+// SHOULD I USE A DIRECTIVE TO INJECT THE FILTER ON THE GOOGLE MAPS DIRECTIVE?
+
+// app.directive("murders", function($filter){
+//     var murderFilter = $filter("murderFilter");
+//     return function(){
+//         if(dayFilter)
 //     };
 // });
+
+
 
 

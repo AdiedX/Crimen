@@ -22,16 +22,6 @@
                     <a target="_blank" href="#" id="dropdownMenu1" data-toggle="dropdown" ng-mouseenter="type=true" ng-mouseleave="type=false">
                         <span class="fa fa-tasks crime-type"></span>
                     </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Rape</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="">Murder</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Felony Assault</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Grand Larceny</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Robbery</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Burglary</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Grand Larceny of Motor Vehicle</a></li>
-                    </ul>
                 </div>
 
                 <br>
@@ -39,36 +29,36 @@
                 <br>
                 <a href="/crime">CRIME STATISTICS</a>
             </div>
+        <form action="#">
+            <input type="checkbox" id="murder-box" ng-click="checkBoxClicked(this,'MURDER')" checked/>
+            <label>Murder</label>
             <br>
+            <input type="checkbox" id="rape-box" ng-click="checkBoxClicked(this,'RAPE')" checked/>
+            <label>Rape</label>
             <br>
+            <input type="checkbox" id="felonyassault-box" ng-click="checkBoxClicked(this,'FELONY ASSAULT')" checked/>
+            <label>Felony Assault</label>
             <br>
-<!--                 <ul class="about-icons">
-                    <li class="twitter">
-                        <a href="https://twitter.com/hacker_adi">
-                            <span class="fa fa-twitter fa-2x" style="color: #CCC"></span>
-                        </a>
-                    </li>
-                    <li class="github">
-                        <a href="https://github.com/AdiedX">
-                            <span class="fa fa-github fa-2x" style="color: #CCC"></span>
-                        </a>
-                    </li>
-                </ul> -->
+            <input type="checkbox" id="robbery-box" ng-click="checkBoxClicked(this,'ROBBERY')" checked/>
+            <label>Robbery</label>
+            <br>
+            <input type="checkbox" id="burglary-box" ng-click="checkBoxClicked(this,'BURGLARY')" checked/>
+            <label>Burglary</label>
+            <br>
+            <input type="checkbox" id="grandlarceny-box" ng-click="checkBoxClicked(this,'GRAND LARCENY')" checked/>
+            <label>Grand Larceny</label>
+            <br>
+            <input type="checkbox" id="gla-box" ng-click="checkBoxClicked(this,'GLA')" checked/>
+            <label>Grand Larceny of Motor Vehicles</label>
+        </form>
         </div>
 
         <div class="col-md-10 height100 no-padding">
-            <!-- STEP 1: PLACE GOOGLE MAPS DIRECTIVE -->
-            <!-- The simple draggable="true" attribute makes the map draggable -->
-            <!--  -->
             <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
             </google-map>
         </div>
     </div>
 
-    <!-- THIS IS SUPPOSED TO WORK AND IS THE BEST WAY TO DO MARKERS.  FIGURE IT OUT!!! -->
-<!--         <markers idkey="'id'" models='crimeMarkers' coords="'self'" icon="'icon'" click="'onClicked'"></markers> -->
-
- <!--         <marker ng-repeat="marker in crimeMarkers" coords="{longitude: marker.longitude, latitude: marker.latitude}" click="'onClicked'" doCluster="doClusterRandomMarkers" clusterOptions="clusterOptions"></marker> -->
 
 
 
