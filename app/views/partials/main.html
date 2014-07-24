@@ -16,21 +16,28 @@
                 </span>
                 <br><br>
             </div>
-
             <div class="navigation" id="main-navList">
-                <div class="dropdown">
-                    <a target="_blank" href="#" id="dropdownMenu1" data-toggle="dropdown" ng-mouseenter="type=true" ng-mouseleave="type=false">
-                        <span class="fa fa-tasks crime-type"></span>
-                    </a>
-                </div>
+            <div class="main-nav-icons">
+                <a href="/crime">
+                    <i class="fa fa-bar-chart-o" ng-mouseenter="adi = true" ng-mouseleave="adi = false" ng-class="{'evolveWhite': adi === true}"></i>
+                </a>
+                <a href="/about">
+                    <i class="fa fa-info" ng-mouseenter="stav = true" ng-mouseleave="stav = false" ng-class="{'evolveWhite': stav === true, 'rotate': stav === true}"></i>
+                </a>
+            </div>
+            <br>
+            <div class="main-mouseoverText">
+                <p id="main-his-crime-data" ng-show="adi === true">Historical Crime Data</p>
+                <p id="main-about" ng-show="stav === true">About</p>
+            </div>
 
                 <br>
-                <a href="/about">ABOUT</a>
+<!--                 <a href="/about">ABOUT</a>
                 <br>
-                <a href="/crime">CRIME STATISTICS</a>
+                <a href="/crime">CRIME STATISTICS</a> -->
             </div>
-        <form action="#">
-            <input type="checkbox" id="murder-box" ng-click="checkBoxClicked(this,'MURDER')" checked/>
+<!--         <form action="#">
+            <input type="checkbox" id="murder-box" checked/>
             <label>Murder</label>
             <br>
             <input type="checkbox" id="rape-box" ng-click="checkBoxClicked(this,'RAPE')" checked/>
@@ -50,7 +57,9 @@
             <br>
             <input type="checkbox" id="gla-box" ng-click="checkBoxClicked(this,'GLA')" checked/>
             <label>Grand Larceny of Motor Vehicles</label>
-        </form>
+        </form> -->
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="addthis_sharing_toolbox"></div>
         </div>
 
         <div class="col-md-10 height100 no-padding">
@@ -58,6 +67,13 @@
             </google-map>
         </div>
     </div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53c04c7f2a875a42"></script>
+
+
+
+
 
 
 

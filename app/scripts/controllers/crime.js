@@ -2,8 +2,43 @@
 
 'use strict';
 
-angular.module('crimespaceAngularApp')
-  .controller('CrimeCtrl', function ($scope){
+var app = angular.module('crimespaceAngularApp');
+
+app.controller('CrimeCtrl', function ($scope){
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column',
+            },
+            colors: ['#AA0036'],
+            title: {
+                text: 'Burglaries (2000 - 2013)'
+            },
+            xAxis: {
+                categories: ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013']
+            },
+            yAxis: {
+                title: {
+                    text: 'Burglaries (2000 - 2013)'
+                }
+            },
+            series: [{
+                name: 'BURGLARIES',
+                data: [38352, 32763,31275,29110,26976,24117,23143,21762,20725,19430,18600,18720,19168,17429]
+            }]
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+//      D3 CODE:
         // var margin = {top: 20, right: 20, bottom: 30, left: 40},
         // width = 960 - margin.left - margin.right,
         // height = 500 - margin.top - margin.bottom;
@@ -86,4 +121,3 @@ angular.module('crimespaceAngularApp')
       //   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
       //   chart.draw(data, options);
       // }
-    });

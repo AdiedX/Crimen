@@ -23,14 +23,28 @@ body{
 /* MAIN PAGE */
 /*-----------*/
 
-#dropdownMenu1{
+.evolveWhite{
+    transition: all 0.15s ease;
+    color: #FFF;
+    font-size: 1.3em;
+}
+
+.rotate{
+    -webkit-animation:spin 0.14s linear;
+    -moz-animation:spin 0.14s linear;
+    animation:spin 0.14s linear;
+}
+
+.main-nav-icons{
     text-decoration: none;
     color: #BBB;
 }
 
-#dropdownMenu1:hover{
-    color: #FFF;
+.main-nav-icons a{
+    display: inline-block;
+    padding: 3%;
     text-decoration: none;
+    color: #BBB;
 }
 
 .navigation{
@@ -106,6 +120,23 @@ div.row.ng-scope{
     width: 100%;
     color: #000;
 }
+
+.main-mouseoverText{
+    position: fixed;
+    text-align: right;
+}
+
+.main-mouseoverText #main-about{
+    margin-right: -135px;
+}
+
+.main-mouseoverText #main-his-crime-data{
+    margin-right: -180px;
+}
+
+/*.addthis_sharing_toolbox{
+    position: absolute;
+}*/
 
 .container-narrow > hr {
   margin: 30px 0;
@@ -188,7 +219,6 @@ div.container.height100.ng-scope{
 
 #crime-header{
     text-align: center;
-    padding-top: 7%;
     font-size: 4em;
     color: #333;
 }

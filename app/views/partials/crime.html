@@ -1,17 +1,21 @@
 
 
-
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 height100 crime-container">
     <div class="crime-body">
         <div id="crime-header">
-            <div>Historical Crime Trends</div>
-            <br><br><br><br><br><br><br>
+            <div>Historical Crime Data</div>
+            <br>
         </div>
-
-        <div id="chart_div" style="width: 500px; height: 500px;"></div>
-
-
-<!--         <div class="crime-burglary" id="background-dim-md-10"> -->
+            <div class="crime-buttons">
+                <button>Burglaries</button>
+                <button>Murders</button>
+                <button>Robberies</button>
+                <button>Rapes</button>
+                <button>Grand Larcenies</button>
+                <button>Grand Larcenies of Automobiles</button>
+                <button>Felony Assaults</button>
+            </div>
+        <div id="container" onload="chart()"></div>
     </div>
 </div>
 

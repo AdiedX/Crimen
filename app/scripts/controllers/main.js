@@ -8,7 +8,7 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
     $http.get('/api/getCrimeData').success(function(crimeData){
         $scope.crimeMarkers = crimeData;
     });
-    // Add map object to the $scope:
+
     $scope.map = {
             center: {
                 latitude: 40.7127,
@@ -21,11 +21,8 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
             }
         };
 
-    // This empty object is for the "control" attribute of the google-maps angular directive which will allow us to obtain the direct reference to the google map instance being used by the directive:
     $scope.mapControl = {};
 
-//--------------------------------------------------
-    // Connect ngAutoComplete output to viewable map area:
     $scope.$watch('details', function(details) {
         $scope.map.center = {
             latitude: details.geometry.location.lat(),
@@ -33,27 +30,18 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
         };
         $scope.map.zoom = 16;
     });
-//--------------------------------------------------
-// CUSTOMIZING ICONS
 
- var circle ={
-    path: google.maps.SymbolPath.CIRCLE,
-    fillColor: 'red',
-    fillOpacity: .9,
-    scale: 6,
-    strokeColor: 'black',
-    strokeWeight: 1,
-};
-
-//--------------------------------------------------
-
+     var circle ={
+        path: google.maps.SymbolPath.CIRCLE,
+        fillColor: 'red',
+        fillOpacity: .9,
+        scale: 6,
+        strokeColor: 'black',
+        strokeWeight: 1,
+    };
 
     var infoWindow = new google.maps.InfoWindow({});
-    // var markerCluster = new MarkerClusterer(map, [], {
-    //             maxZoom: 16
-    //         });
 
-    // '$watch' registers a listener callback to be called whenever the watchExpression changes:
     $scope.$watch('mapControl', function(mapControl){
         var map = $scope.mapControl.getGMap();
 
@@ -67,17 +55,12 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
                     icon: circle
                 });
 
-                //---------------------------------------------
-                // INFO WINDOWS:
                 var infoContent = '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>';
 
                 bindInfoWindow(marker, map, infoWindow, infoContent);
-
-                //---------------------------------------------
                 return marker;
             });
 
-            // Need to add options to the following cluster constructor:
             var markerCluster = new MarkerClusterer(map, markers, {
                 maxZoom: 16
             });
@@ -122,17 +105,12 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
     //     }
     // };
 
-// //--------------------------------------------------
-// //  [IN PROGRESS] $filter METHOD:
+    // $scope.generateMap = function(){
 
-// $scope.$watch("murderFilter", function(murderFilter){
-//     $http.get('/api/getCrimeData').success(function(crimeData){
-//         $scope.filteredMarkers = $filter('filter')(crimeData, murderFilter);
-//         if(!$scope.filteredMarkers)
-//             return;
-//     });
-// });
-//--------------------------------------------------
+    // };
+    // $scope.murderFilter = function(){
+    //     $http
+    // };
 
 }); // End of MainCtrl's scope ...
 
@@ -141,45 +119,33 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
 
 // #1: Filtering for Murders:
 
-app.filter("murderFilter", function($http){
-        var map = $scope.mapControl.getGMap();
-        $http.get('/api/getCrimeData').success(function(crimeData){
-        return function(){
-                var murderMarkers =  _.map(crimeData, function(element){
-                    if(element.type === "MURDER"){
-                        var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
+// app.filter("murderFilter", function($http){
+//         // var map = $scope.mapControl.getGMap();
+//         $http.get('/api/getCrimeData').success(function(crimeData){
+//         return function(){
+//                 var murderMarkers =  _.map(crimeData, function(element){
+//                     if(element.type === "MURDER"){
+//                         var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
 
-                        var marker = new google.maps.Marker({
-                            position: myLatlng,
-                            title: element.type,
-                            icon: circle
-                        });
+//                         var marker = new google.maps.Marker({
+//                             position: myLatlng,
+//                             title: element.type,
+//                             icon: circle
+//                         });
 
-                        //---------------------------------------------
-                        // INFO WINDOWS:
-                        var infoContent = '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>';
+//                         //---------------------------------------------
+//                         // INFO WINDOWS:
+//                         var infoContent = '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>';
 
-                        //---------------------------------------------
-                        return marker;
-                    }
-                });
-                    var markerCluster = new MarkerClusterer(map, murderMarkers, {
-                        maxZoom: 16
-                    });
-            };
-    });
-});
-
-//--------------------------------------------------
-// DIRECTIVES
-
-// SHOULD I USE A DIRECTIVE TO INJECT THE FILTER ON THE GOOGLE MAPS DIRECTIVE?
-
-// app.directive("murders", function($filter){
-//     var murderFilter = $filter("murderFilter");
-//     return function(){
-//         if(dayFilter)
-//     };
+//                         //---------------------------------------------
+//                         return marker;
+//                     }
+//                 });
+//                     // var markerCluster = new MarkerClusterer(map, murderMarkers, {
+//                     //     maxZoom: 16
+//                     // });
+//             };
+//     });
 // });
 
 
