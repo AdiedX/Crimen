@@ -4,18 +4,18 @@
     <div class="crime-body">
         <div id="crime-header">
             <div>Historical Crime Data</div>
-            <br>
         </div>
             <div class="crime-buttons">
-                <button>Burglaries</button>
-                <button>Murders</button>
-                <button>Robberies</button>
-                <button>Rapes</button>
-                <button>Grand Larcenies</button>
-                <button>Grand Larcenies of Automobiles</button>
-                <button>Felony Assaults</button>
+                <button class="btn btn-default" ng-click="generateChart('burglaries')" ng-class="{'active': clicked-0 === true}">Burglaries</button>
+                <button class="btn btn-default" ng-click="generateChart('murders')" ng-class="{'active': clicked-1 === true}">Murders</button>
+                <button class="btn btn-default" ng-click="generateChart('robberies')" ng-class="{'active': clicked-2 === true}">Robberies</button>
+                <button class="btn btn-default" ng-click="generateChart('rapes')" ng-class="{'active': clicked-3 === true}">Rapes</button>
+                <button class="btn btn-default" ng-click="generateChart('grandLarcenies')" ng-class="{'active': clicked-4 === true}">Grand Larcenies</button>
+                <button class="btn btn-default" ng-click="generateChart('GLA')" ng-class="{'active': clicked-5 === true}">Grand Larcenies of Automobiles</button>
+                <button class="btn btn-default" ng-click="generateChart('felonyAssaults')" ng-class="{'active': clicked-6 === true}">Felony Assaults</button>
             </div>
-        <div id="container" onload="chart()"></div>
+            <br><br>
+        <div id="crime-highcharts" onload="chart()"></div>
     </div>
 </div>
 
