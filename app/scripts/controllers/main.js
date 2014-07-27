@@ -73,80 +73,8 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
             });
         }
     }); // $scope.$watch('mapControl', )
-
-//--------------------------------------------------
-//  EARLIER TRY: FILTERING MARKERS [DIDN'T WORK]
-//--------------------------------------------------
-
-    // $scope.showMarker = function(crimeType){
-    //     for (var i = 0; i < markers.length; i++){
-    //         if(markers[i].title === crimeType){
-    //             markers[i].setVisible(true);
-    //         }
-    //     }
-    //     document.getElementById(crimeType.toLowerCase().replace(/ /g, '') + "-" + "box").checked = true;
-    // };
-
-    // $scope.hideMarker = function(crimeType){
-    //     for (var i = 0; i < markers.length; i++) {
-    //         if(markers[i].title === crimeType){
-    //             markers[i].setVisible(false);
-    //         }
-    //     }
-    //     document.getElementById(crimeType.toLowerCase().replace(/ /g, '') + "-" + "box").checked = false;
-    //     infoWindow.close();
-    // };
-
-    // $scope.checkBoxClicked = function(box, crimeType){
-    //     if(box.checked){
-    //         showMarker(crimeType);
-    //     } else{
-    //         hideMarker(crimeType);
-    //     }
-    // };
-
-    // $scope.generateMap = function(){
-
-    // };
-    // $scope.murderFilter = function(){
-    //     $http
-    // };
-
 }); // End of MainCtrl's scope ...
 
-//--------------------------------------------------
-// FILTER FUNCTIONS:
-
-// #1: Filtering for Murders:
-
-// app.filter("murderFilter", function($http){
-//         // var map = $scope.mapControl.getGMap();
-//         $http.get('/api/getCrimeData').success(function(crimeData){
-//         return function(){
-//                 var murderMarkers =  _.map(crimeData, function(element){
-//                     if(element.type === "MURDER"){
-//                         var myLatlng = new google.maps.LatLng(element.latitude, element.longitude);
-
-//                         var marker = new google.maps.Marker({
-//                             position: myLatlng,
-//                             title: element.type,
-//                             icon: circle
-//                         });
-
-//                         //---------------------------------------------
-//                         // INFO WINDOWS:
-//                         var infoContent = '<div style="width: 135px; height: 50px; font-size: 12px; font-family: Courier; color: black"><b>' + element.type + '<br>' + 'MONTH: ' + element.month + '<br>' + 'YEAR: ' + element.year +'<b></div>';
-
-//                         //---------------------------------------------
-//                         return marker;
-//                     }
-//                 });
-//                     // var markerCluster = new MarkerClusterer(map, murderMarkers, {
-//                     //     maxZoom: 16
-//                     // });
-//             };
-//     });
-// });
 
 
 

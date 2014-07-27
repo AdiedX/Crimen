@@ -42,6 +42,7 @@ app.controller('CrimeCtrl', function ($scope){
             name: "GRAND LARCENIES OF MOTOR VEHICLES"
         }
     };
+
     $scope.generateChart = function(crimeType){
         $('#crime-highcharts').highcharts({
             chart: {
@@ -56,7 +57,7 @@ app.controller('CrimeCtrl', function ($scope){
             },
             yAxis: {
                 title: {
-                    text: chartObject[crimeType]['title']
+                    text: chartObject[crimeType]['name']
                 }
             },
             series: [{
@@ -65,9 +66,6 @@ app.controller('CrimeCtrl', function ($scope){
             }]
         });
     };
-    // $scope.activeButton = function(){
-    //     if ($scope.
-    // };
 });
 
 
