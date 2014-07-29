@@ -117,6 +117,11 @@ div.row.ng-scope{
 #main-addInput{
     width: 100%;
     color: #000;
+    border-radius: 20px;
+}
+
+#main-search{
+    border-radius: 20px;
 }
 
 .main-mouseoverText{

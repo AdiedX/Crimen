@@ -1,0 +1,54 @@
+
+
+    <div class="row height100">
+        <div id="main-sidebar" class="col-md-2">
+            <div id="main-container">
+                <span id="main-header">CRIMEN</span>
+                <br>
+                <span id="main-subHeader">
+                    NYC's Crime Map
+                </span>
+                <br><br>
+                <span id="main-addInput" class="height100">
+                    <!-- The 'options' & 'details' are ngAutoComplete attributes -->
+                    <!-- 'details="details"' is where the lat/long information comes from -->
+                    <input id="main-search" type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details"/>
+                </span>
+                <br><br>
+            </div>
+            <div class="navigation" id="main-navList">
+            <div class="main-nav-icons">
+                <a href="/crime">
+                    <i class="fa fa-bar-chart-o" ng-mouseenter="adi = true" ng-mouseleave="adi = false" ng-class="{'evolveWhite': adi === true}"></i>
+                </a>
+                <a href="/about">
+                    <i class="fa fa-info" ng-mouseenter="stav = true" ng-mouseleave="stav = false" ng-class="{'evolveWhite': stav === true, 'rotate': stav === true}"></i>
+                </a>
+            </div>
+            <br>
+            <div class="main-mouseoverText">
+                <p id="main-his-crime-data" ng-show="adi === true">Historical Crime Data</p>
+                <p id="main-about" ng-show="stav === true">About</p>
+            </div>
+                <br>
+            </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="addthis_sharing_toolbox"></div>
+        </div>
+
+        <div class="col-md-10 height100 no-padding">
+            <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
+            </google-map>
+        </div>
+    </div>
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53c04c7f2a875a42"></script>
+
+
+
+
+
+
+
+
