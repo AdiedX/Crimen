@@ -9,6 +9,16 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
         $scope.crimeMarkers = crimeData;
     });
 
+    var fade_out = function(){
+        $("#main-gif").fadeOut();
+    }
+    setTimeout(fade_out, 10000);
+
+    var fade_in = function(){
+        $(".addthis_sharing_toolbox").fadeIn();
+    }
+    setTimeout(fade_in, 10500);
+
     $scope.map = {
             center: {
                 latitude: 40.7127,

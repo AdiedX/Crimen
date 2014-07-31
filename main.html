@@ -1,4 +1,19 @@
 
+<script>
+        (function(){
+            var myDiv = document.getElementById("main-gif");
+            var showGIF = function(){
+            myDiv.style.display = "block";
+            setTimeout(hide, 5000);
+
+            var hide = function(){
+                myDiv.style.display = "none";
+            }
+            showGIF();
+        })();
+</script>
+
+
 
     <div class="row height100">
         <div id="main-sidebar" class="col-md-2">
@@ -17,29 +32,33 @@
                 <br><br>
             </div>
             <div class="navigation" id="main-navList">
-            <div class="main-nav-icons">
-                <a href="/crime">
-                    <i class="fa fa-bar-chart-o" ng-mouseenter="adi = true" ng-mouseleave="adi = false" ng-class="{'evolveWhite': adi === true}"></i>
-                </a>
-                <a href="/about">
-                    <i class="fa fa-info" ng-mouseenter="stav = true" ng-mouseleave="stav = false" ng-class="{'evolveWhite': stav === true, 'rotate': stav === true}"></i>
-                </a>
-            </div>
-            <br>
-            <div class="main-mouseoverText">
-                <p id="main-his-crime-data" ng-show="adi === true">Historical Crime Data</p>
-                <p id="main-about" ng-show="stav === true">About</p>
-            </div>
+                <div class="main-nav-icons">
+                    <a href="/crime">
+                        <i class="fa fa-bar-chart-o" ng-mouseenter="adi = true" ng-mouseleave="adi = false" ng-class="{'evolveWhite': adi === true}"></i>
+                    </a>
+                    <a href="/about">
+                        <i class="fa fa-info" ng-mouseenter="stav = true" ng-mouseleave="stav = false" ng-class="{'evolveWhite': stav === true, 'rotate': stav === true}"></i>
+                    </a>
+                </div>
+                <br>
+                <div class="main-mouseoverText">
+                    <p id="main-his-crime-data" ng-show="adi === true">Historical Crime Data</p>
+                    <p id="main-about" ng-show="stav === true">About</p>
+                </div>
                 <br>
             </div>
+            <div id="main-gif">
+                <img src="http://www.sonidoteen.com/images/anim.gif">
+                <p>Asfhglaebgalkjsb;aksjb</p>
+            </div>
+        </div>
         <br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <div class="addthis_sharing_toolbox"></div>
-        </div>
+    </div>
 
-        <div class="col-md-10 height100 no-padding">
-            <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
-            </google-map>
-        </div>
+    <div class="col-md-10 height100 no-padding">
+        <google-map class="height100" center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="mapControl">
+        </google-map>
     </div>
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
