@@ -5,17 +5,21 @@
         <div id="crime-header">
             <div>Historical Crime Data</div>
         </div>
-            <div class="crime-buttons">
-                <button class="btn btn-default" ng-click="generateChart('burglaries')" ng-class="{'active': clicked-0 === true}">Burglaries</button>
-                <button class="btn btn-default" ng-click="generateChart('murders')" ng-class="{'active': clicked-1 === true}">Murders</button>
-                <button class="btn btn-default" ng-click="generateChart('robberies')" ng-class="{'active': clicked-2 === true}">Robberies</button>
-                <button class="btn btn-default" ng-click="generateChart('rapes')" ng-class="{'active': clicked-3 === true}">Rapes</button>
-                <button class="btn btn-default" ng-click="generateChart('grandLarcenies')" ng-class="{'active': clicked-4 === true}">Grand Larcenies</button>
-                <button class="btn btn-default" ng-click="generateChart('GLA')" ng-class="{'active': clicked-5 === true}">Grand Larcenies of Automobiles</button>
-                <button class="btn btn-default" ng-click="generateChart('felonyAssaults')" ng-class="{'active': clicked-6 === true}">Felony Assaults</button>
-            </div>
-            <br><br>
-        <div id="crime-highcharts" onload="chart()"></div>
+        <div class="crime-buttons">
+            <button class="btn btn-default" ng-click="generateChart('burglaries')">Burglaries</button>
+            <button class="btn btn-default" ng-click="generateChart('murders')">Murders</button>
+            <button class="btn btn-default" ng-click="generateChart('robberies')">Robberies</button>
+            <button class="btn btn-default" ng-click="generateChart('rapes')">Rapes</button>
+            <button class="btn btn-default" ng-click="generateChart('grandLarcenies')">Grand Larcenies</button>
+            <button class="btn btn-default" ng-click="generateChart('GLA')">Grand Larcenies of Automobiles</button>
+            <button class="btn btn-default" ng-click="generateChart('felonyAssaults')">Felony Assaults</button>
+        </div>
+        <br><br>
+        <div class="crime-introduction" ng-show="showIntro" class="ng-hide">
+            The New York City Police Department documents reported crime data based on the New York State Penal Law and other New York State laws.  You can find historical crime data for New York City for the seven major felonies: Felony Assault, Grand Larceny, Grand Larceny of Motor Vehicles, Robbery, Murder, Rape, and Burglary. The data presented here compiles reported crime data recorded by the New York City Police Department from 2000 through 2013.  Click on the category above to view trends in that particular type of crime from 2000 to 2013.
+        </div>
+        <div id="crime-highcharts"></div>
+
     </div>
 </div>
 

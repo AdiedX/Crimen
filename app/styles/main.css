@@ -195,8 +195,7 @@ div.row.ng-scope{
 /*------------------*/
 
 .crime-container{
-/*    margin-left: 5%;
-    margin-right: 5%;*/
+    position: fixed;
 }
 
 .crime-container{
@@ -240,6 +239,16 @@ div.container.height100.ng-scope{
 .crime-buttons{
     margin-right: 10%;
     margin-left: 15%;
+}
+
+.crime-introduction{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+rect.highcharts-background{
+    width: 100%;
 }
 
 /*------------------*/

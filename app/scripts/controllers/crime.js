@@ -43,7 +43,14 @@ app.controller('CrimeCtrl', function ($scope){
         }
     };
 
+    $scope.showIntro = true;
+    var chartExists = false;
     $scope.generateChart = function(crimeType){
+        // $('.crime-introduction').remove();
+        $scope.showIntro = false;
+        if(chartExists === true){
+            $('#crime-highcharts').highcharts().destroy();
+        }
         $('#crime-highcharts').highcharts({
             chart: {
                 type: 'column',
@@ -65,7 +72,9 @@ app.controller('CrimeCtrl', function ($scope){
                 data: chartObject[crimeType]['data']
             }]
         });
+        chartExists === true;
     };
+
 });
 
 
