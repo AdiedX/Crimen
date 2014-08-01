@@ -40,3 +40,38 @@ $scope.$watch('details', function(details) {
 });
 ```
 
+##View historical crime data in the form of dynamic charts:
+<img src="http://i.imgur.com/XU55QIR.png">
+```javascript
+$scope.showIntro = true;
+var chartExists = false;
+$scope.generateChart = function(crimeType){
+    // $('.crime-introduction').remove();
+    $scope.showIntro = false;
+    if(chartExists === true){
+        $('#crime-highcharts').highcharts().destroy();
+    }
+    $('#crime-highcharts').highcharts({
+        chart: {
+            type: 'column',
+        },
+        colors: ['#AA0036'],
+        title: {
+            text: chartObject[crimeType]['title']
+        },
+        xAxis: {
+            categories: ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013']
+        },
+        yAxis: {
+            title: {
+                text: chartObject[crimeType]['name']
+            }
+        },
+        series: [{
+            name: chartObject[crimeType]['name'],
+            data: chartObject[crimeType]['data']
+        }]
+    });
+    chartExists === true;
+};
+```
