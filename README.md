@@ -28,3 +28,15 @@ $http.get('/api/getCrimeData').success(function(crimeData){
 });
 ```
 
+##Search for crimes by address, with autocomplete feature:
+<img src="http://i.imgur.com/34fdKKX.png">
+```javascript
+$scope.$watch('details', function(details) {
+    $scope.map.center = {
+        latitude: details.geometry.location.lat(),
+        longitude: details.geometry.location.lng()
+    };
+    $scope.map.zoom = 16;
+});
+```
+
