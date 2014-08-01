@@ -10,14 +10,24 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
     });
 
     var fade_out = function(){
-        $("#main-gif").fadeOut();
-    }
+        $("#main-promptText-1").fadeOut();
+    };
     setTimeout(fade_out, 10000);
 
     var fade_in = function(){
         $(".addthis_sharing_toolbox").fadeIn();
-    }
+    };
     setTimeout(fade_in, 10500);
+
+    // var fade_in_promptText2 = function(){
+    //     $("#main-promptText-2").fadeIn();
+    // };
+    // setTimeout(fade_in_promptText2, 12000);
+
+    // var fade_out_promptText2 = function(){
+    //     $("#main-promptText-2").fadeOut();
+    // };
+    // setTimeout(fade_out_promptText2, 18000);
 
     $scope.map = {
             center: {

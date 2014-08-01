@@ -137,9 +137,15 @@ div.row.ng-scope{
     margin-right: -180px;
 }
 
-#main-gif{
+#main-promptText-1{
     font-size: 1.5em;
     color: #FFF;
+}
+
+#main-promptText-2{
+    font-size: 1.5em;
+    color: #FFF;
+    display: none;
 }
 
 .addthis_sharing_toolbox{
@@ -256,6 +262,8 @@ div.container.height100.ng-scope{
 rect.highcharts-background{
     width: 100%;
 }
+
+/* ABOUT PAGE */
 
 /*------------------*/
 /*ICONS IN THE ABOUT PAGE*/
