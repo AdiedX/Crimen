@@ -5,6 +5,34 @@ New York City's Crime Map
 
 ##Crimes are clustered:
 <img src="http://i.imgur.com/o0Ze7xb.png">
+###### API DATA
+```javascript
+exports.crimeData = function(req, res) {
+    return Crime.find().limit(200000).exec(function(err, crimes){
+        if(!err){
+            var mapOutput =  _.map(crimes, function(element){
+                return{
+                    id: element._id,
+                    latitude: element.latitude,
+                    longitude: element.longitude,
+                    type: element.type,
+                    month: element.month,
+                    year: element.year
+                };
+            });
+            return res.json(mapOutput);
+        } else{
+            res.send(500);
+        }
+    });
+};
+```
+######API ROUTE
+```javascript
+  // Server API Routes
+app.route('/api/getCrimeData').get(api.crimeData);
+```
+######AJAX CALL
 ```javascript
 $http.get('/api/getCrimeData').success(function(crimeData){
     var markers =  _.map(crimeData, function(element){
@@ -30,11 +58,13 @@ $http.get('/api/getCrimeData').success(function(crimeData){
 
 ##Search for crimes by address, with autocomplete feature:
 <img src="http://i.imgur.com/34fdKKX.png">
+######MARKUP
 ```html
 <span id="main-addInput" class="height100">
  <input id="main-search" type="text" value="Enter Address" ng-autocomplete ng-model="autocomplete" options="options" details="details"/>
 </span>
 ```
+######WATCH FOR CHANGE IN COORDINATES TRIGGERED BY CHANGE OF ADDRESS BY THE USER
 ```javascript
 $scope.$watch('details', function(details) {
     $scope.map.center = {
@@ -47,6 +77,7 @@ $scope.$watch('details', function(details) {
 
 ##View historical crime data in the form of dynamic charts:
 <img src="http://i.imgur.com/XU55QIR.png">
+######SIMPLE CHART USING JAVASCRIPT
 ```javascript
 var chartObject = {
     burglaries: {
