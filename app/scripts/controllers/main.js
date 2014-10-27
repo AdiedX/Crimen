@@ -9,26 +9,7 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
         $scope.crimeMarkers = crimeData;
     });
 
-    var fade_out = function(){
-        $("#main-promptText-1").fadeOut();
-    };
-    setTimeout(fade_out, 10000);
-
-    var fade_in = function(){
-        $(".addthis_sharing_toolbox").fadeIn();
-    };
-    setTimeout(fade_in, 10500);
-
-    // var fade_in_promptText2 = function(){
-    //     $("#main-promptText-2").fadeIn();
-    // };
-    // setTimeout(fade_in_promptText2, 12000);
-
-    // var fade_out_promptText2 = function(){
-    //     $("#main-promptText-2").fadeOut();
-    // };
-    // setTimeout(fade_out_promptText2, 18000);
-
+    // Initialize map:
     $scope.map = {
             center: {
                 latitude: 40.7127,
@@ -43,6 +24,7 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
 
     $scope.mapControl = {};
 
+    // Watch the view for changes in 'details'.  Use the changes to update latitude and longitude:
     $scope.$watch('details', function(details) {
         $scope.map.center = {
             latitude: details.geometry.location.lat(),
@@ -51,6 +33,7 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
         $scope.map.zoom = 16;
     });
 
+    // Create custom marker:
      var circle ={
         path: google.maps.SymbolPath.CIRCLE,
         fillColor: 'red',
@@ -95,7 +78,16 @@ app.controller('MainCtrl', function ($scope, $http, $filter){
     }); // $scope.$watch('mapControl', )
 }); // End of MainCtrl's scope ...
 
+// JQuery for opening text:
+var fade_out = function(){
+    $("#main-promptText-1").fadeOut();
+};
+setTimeout(fade_out, 10000);
 
+var fade_in = function(){
+    $(".addthis_sharing_toolbox").fadeIn();
+};
+setTimeout(fade_in, 10500);
 
 
 
