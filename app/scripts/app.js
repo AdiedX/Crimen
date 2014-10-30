@@ -7,7 +7,7 @@ angular.module('crimespaceAngularApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'google-maps',
+  'google-maps',  // .ns() for google maps 2.0
   'ngAutocomplete'
 ]) // FRONT-END ROUTES:
   .config(function ($routeProvider, $locationProvider) {

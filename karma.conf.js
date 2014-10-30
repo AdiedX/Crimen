@@ -12,6 +12,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'app/bower_components/lodash/dist/lodash.underscore.min.js',
+      'app/bower_components/jquery/dist/jquery.js',
       'https://maps.googleapis.com/maps/api/js?sensor=false&language=en',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
@@ -21,6 +22,7 @@ module.exports = function(config) {
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-google-maps/dist/angular-google-maps.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
+      // 'app/bower_components/angular-scenario/angular-scenario.js',
       // 'node_modules/underscore/underscore.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',

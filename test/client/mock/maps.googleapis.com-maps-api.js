@@ -1,12 +1,12 @@
 
 
-var google = {
-    maps : {
-        OverlayView : function () {
-        },
-        Marker : function () {
-        },
-        InfoWindow : function () {
-        }
-    }
-};
+// var google = {
+//     maps : {
+//         OverlayView : function () {
+//         },
+//         Marker : function () {
+//         },
+//         InfoWindow : function () {
+//         }
+//     }
+// };
