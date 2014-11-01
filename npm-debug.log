@@ -1,0 +1,174 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'karma-jasmine@2_0',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 warn package.json crimespaceangular@0.0.0 No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'karma-jasmine@2_0', null ]
+7 verbose cache add name=undefined spec="karma-jasmine@2_0" args=["karma-jasmine@2_0",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'karma-jasmine@2_0',
+8 verbose parsed url   path: 'karma-jasmine@2_0',
+8 verbose parsed url   href: 'karma-jasmine@2_0' }
+9 verbose cache add name="karma-jasmine" spec="2_0" args=["karma-jasmine","2_0"]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: '2_0',
+10 verbose parsed url   path: '2_0',
+10 verbose parsed url   href: '2_0' }
+11 verbose addNamed [ 'karma-jasmine', '2_0' ]
+12 verbose addNamed [ null, null ]
+13 silly lockFile 87968950-karma-jasmine-2-0 karma-jasmine@2_0
+14 verbose lock karma-jasmine@2_0 /Users/adisivasankaran/.npm/87968950-karma-jasmine-2-0.lock
+15 info addNameTag [ 'karma-jasmine', '2_0' ]
+16 verbose request where is /karma-jasmine
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 2bd48f25355ce77a
+19 verbose url raw /karma-jasmine
+20 verbose url resolving [ 'https://registry.npmjs.org/', './karma-jasmine' ]
+21 verbose url resolved https://registry.npmjs.org/karma-jasmine
+22 verbose request where is https://registry.npmjs.org/karma-jasmine
+23 info trying registry request attempt 1 at 17:17:38
+24 verbose etag "7P9RKA66WQQ73Z6CDCTOMPOZK"
+25 http GET https://registry.npmjs.org/karma-jasmine
+26 http 304 https://registry.npmjs.org/karma-jasmine
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Fri, 31 Oct 2014 00:14:54 GMT',
+27 silly registry.get     server: 'Apache',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'last-modified': 'Fri, 31 Oct 2014 00:14:54 GMT',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"7P9RKA66WQQ73Z6CDCTOMPOZK"',
+27 silly registry.get     age: '48',
+27 silly registry.get     'x-served-by': 'cache-lax1420-LAX',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '1',
+27 silly registry.get     'x-timer': 'S1414714494.096472,VS0,VE0',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'content-length': '0',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 verbose etag https://registry.npmjs.org/karma-jasmine from cache
+29 verbose addNamed [ 'karma-jasmine', '0.2.2' ]
+30 verbose addNamed [ '0.2.2', '0.2.2' ]
+31 silly lockFile 3e5d764c-karma-jasmine-0-2-2 karma-jasmine@0.2.2
+32 verbose lock karma-jasmine@0.2.2 /Users/adisivasankaran/.npm/3e5d764c-karma-jasmine-0-2-2.lock
+33 silly lockFile 3e5d764c-karma-jasmine-0-2-2 karma-jasmine@0.2.2
+34 silly lockFile 3e5d764c-karma-jasmine-0-2-2 karma-jasmine@0.2.2
+35 silly lockFile 87968950-karma-jasmine-2-0 karma-jasmine@2_0
+36 silly lockFile 87968950-karma-jasmine-2-0 karma-jasmine@2_0
+37 silly resolved [ { name: 'karma-jasmine',
+37 silly resolved     version: '0.2.2',
+37 silly resolved     description: 'A Karma plugin - adapter for Jasmine testing framework.',
+37 silly resolved     main: 'lib/index.js',
+37 silly resolved     scripts: { test: 'grunt test' },
+37 silly resolved     repository:
+37 silly resolved      { type: 'git',
+37 silly resolved        url: 'git://github.com/karma-runner/karma-jasmine.git' },
+37 silly resolved     keywords: [ 'karma-plugin', 'karma-adapter', 'jasmine' ],
+37 silly resolved     author: { name: 'Vojta Jina', email: 'vojta.jina@gmail.com' },
+37 silly resolved     dependencies: {},
+37 silly resolved     devDependencies:
+37 silly resolved      { grunt: '~0.4.1',
+37 silly resolved        'grunt-contrib-jshint': '~0.6',
+37 silly resolved        karma: '~0.9',
+37 silly resolved        'karma-jasmine': '*',
+37 silly resolved        'grunt-karma': '~0.4',
+37 silly resolved        'grunt-auto-release': '~0.0.2',
+37 silly resolved        'grunt-npm': '~0.0.2',
+37 silly resolved        'grunt-bump': '~0.0.7' },
+37 silly resolved     peerDependencies: { karma: '>=0.9' },
+37 silly resolved     license: 'MIT',
+37 silly resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+37 silly resolved     bugs: { url: 'https://github.com/karma-runner/karma-jasmine/issues' },
+37 silly resolved     _id: 'karma-jasmine@0.2.2',
+37 silly resolved     dist:
+37 silly resolved      { shasum: 'dfac5859131c233c310c7e0b017f74ebe3259a48',
+37 silly resolved        tarball: 'http://registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.2.2.tgz' },
+37 silly resolved     _from: 'karma-jasmine@2_0',
+37 silly resolved     _npmVersion: '1.3.11',
+37 silly resolved     _npmUser: { name: 'vojtajina', email: 'vojta.jina@gmail.com' },
+37 silly resolved     maintainers: [ [Object] ],
+37 silly resolved     directories: {},
+37 silly resolved     _shasum: 'dfac5859131c233c310c7e0b017f74ebe3259a48',
+37 silly resolved     _resolved: 'https://registry.npmjs.org/karma-jasmine/-/karma-jasmine-0.2.2.tgz',
+37 silly resolved     readme: 'ERROR: No README data found!',
+37 silly resolved     homepage: 'https://github.com/karma-runner/karma-jasmine' } ]
+38 info install karma-jasmine@0.2.2 into /Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace
+39 info installOne karma-jasmine@0.2.2
+40 verbose node_modules/karma-jasmine unbuild
+41 info preuninstall karma-jasmine@0.2.2
+42 info uninstall karma-jasmine@0.2.2
+43 verbose true,/Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules,/Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules unbuild karma-jasmine@0.2.2
+44 info postuninstall karma-jasmine@0.2.2
+45 verbose tar unpack /Users/adisivasankaran/.npm/karma-jasmine/0.2.2/package.tgz
+46 silly lockFile 1b3376fb-space-node-modules-karma-jasmine tar:///Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules/karma-jasmine
+47 verbose lock tar:///Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules/karma-jasmine /Users/adisivasankaran/.npm/1b3376fb-space-node-modules-karma-jasmine.lock
+48 silly lockFile 527ba027--karma-jasmine-0-2-2-package-tgz tar:///Users/adisivasankaran/.npm/karma-jasmine/0.2.2/package.tgz
+49 verbose lock tar:///Users/adisivasankaran/.npm/karma-jasmine/0.2.2/package.tgz /Users/adisivasankaran/.npm/527ba027--karma-jasmine-0-2-2-package-tgz.lock
+50 silly gunzTarPerm modes [ '755', '644' ]
+51 silly gunzTarPerm extractEntry package.json
+52 silly gunzTarPerm extractEntry README.md
+53 silly gunzTarPerm extractEntry LICENSE
+54 silly gunzTarPerm extractEntry lib/adapter.js
+55 silly gunzTarPerm extractEntry lib/boot.js
+56 silly gunzTarPerm extractEntry lib/index.js
+57 silly gunzTarPerm extractEntry lib/jasmine.js
+58 silly lockFile 1b3376fb-space-node-modules-karma-jasmine tar:///Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules/karma-jasmine
+59 silly lockFile 1b3376fb-space-node-modules-karma-jasmine tar:///Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules/karma-jasmine
+60 silly lockFile 527ba027--karma-jasmine-0-2-2-package-tgz tar:///Users/adisivasankaran/.npm/karma-jasmine/0.2.2/package.tgz
+61 silly lockFile 527ba027--karma-jasmine-0-2-2-package-tgz tar:///Users/adisivasankaran/.npm/karma-jasmine/0.2.2/package.tgz
+62 info preinstall karma-jasmine@0.2.2
+63 verbose readDependencies using package.json deps
+64 verbose readDependencies using package.json deps
+65 silly resolved []
+66 verbose about to build /Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules/karma-jasmine
+67 info build /Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules/karma-jasmine
+68 verbose linkStuff [ false,
+68 verbose linkStuff   false,
+68 verbose linkStuff   false,
+68 verbose linkStuff   '/Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace/node_modules' ]
+69 info linkStuff karma-jasmine@0.2.2
+70 verbose linkBins karma-jasmine@0.2.2
+71 verbose linkMans karma-jasmine@0.2.2
+72 verbose rebuildBundles karma-jasmine@0.2.2
+73 info install karma-jasmine@0.2.2
+74 info postinstall karma-jasmine@0.2.2
+75 error peerinvalid The package karma does not satisfy its siblings' peerDependencies requirements!
+75 error peerinvalid Peer karma-chrome-launcher@0.1.4 wants karma@>=0.9.3
+75 error peerinvalid Peer karma-firefox-launcher@0.1.3 wants karma@>=0.9
+75 error peerinvalid Peer karma-html2js-preprocessor@0.1.0 wants karma@>=0.9
+75 error peerinvalid Peer karma-jasmine@0.2.2 wants karma@>=0.9
+75 error peerinvalid Peer karma-ng-html2js-preprocessor@0.1.0 wants karma@>=0.9
+75 error peerinvalid Peer karma-ng-scenario@0.1.0 wants karma@>=0.9
+75 error peerinvalid Peer karma-requirejs@0.2.2 wants karma@>=0.9
+75 error peerinvalid Peer karma-script-launcher@0.1.0 wants karma@>=0.9
+75 error peerinvalid Peer grunt-karma@0.6.2 wants karma@~0.10.0
+75 error peerinvalid Peer karma-coffee-preprocessor@0.1.3 wants karma@>=0.9
+75 error peerinvalid Peer karma-phantomjs-launcher@0.1.4 wants karma@>=0.9
+76 error System Darwin 14.0.0
+77 error command "node" "/usr/local/bin/npm" "install" "karma-jasmine@2_0" "--save-dev"
+78 error cwd /Users/adisivasankaran/Documents/Fullstack/PROJECT/crimespace
+79 error node -v v0.10.32
+80 error npm -v 1.4.28
+81 error code EPEERINVALID
+82 verbose exit [ 1, true ]
