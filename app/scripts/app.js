@@ -1,5 +1,3 @@
-
-
 'use strict';
 
 angular.module('crimespaceAngularApp', [
@@ -7,9 +5,9 @@ angular.module('crimespaceAngularApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'google-maps',  // .ns() for google maps 2.0
+  'google-maps',
   'ngAutocomplete'
-]) // FRONT-END ROUTES:
+])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -17,7 +15,6 @@ angular.module('crimespaceAngularApp', [
         controller: 'MainCtrl'
       }).when('/about', {
         templateUrl: 'partials/about'
-        // Controller
       }).when('/crime', {
         templateUrl: 'partials/crime',
         controller: 'CrimeCtrl'
