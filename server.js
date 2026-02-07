@@ -18,8 +18,6 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   }
 });
 
-require('./lib/config/dummydata');
-
 var app = express();
 require('./lib/config/express')(app);
 require('./lib/routes')(app);

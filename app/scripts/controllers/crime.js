@@ -74,7 +74,7 @@ app.controller('CrimeCtrl', function ($scope){
 			}]
 		});
 
-		chartExists === true;
+		chartExists = true;
 	};
 
 });

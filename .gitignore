@@ -6,3 +6,15 @@ app/bower_components
 heroku
 /views
 dist
+
+# Environment variables (never commit secrets)
+.env
+.env.local
+.env.production
+
+# New project build artifacts
+client/node_modules
+client/dist
+client/.angular
+server/node_modules
+server/dist
