@@ -1,0 +1,36 @@
+<div class="map-container">
+  <aside class="sidebar">
+    <h1 class="brand">CRIMEN</h1>
+    <p class="subtitle">NYC's Crime Map</p>
+
+    <!-- Phase 2: Google Places autocomplete input will go here -->
+    <div class="search-placeholder">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by address..."
+        disabled
+      />
+      <small class="text-muted">Address search coming in Phase 2</small>
+    </div>
+  </aside>
+
+  <div class="map-wrapper">
+    @if (loading) {
+      <div class="loading-overlay">
+        <p>Loading crime data...</p>
+      </div>
+    }
+
+    <!-- Phase 2: google-map will be wired with markers and clustering -->
+    <google-map
+      width="100%"
+      height="100%"
+      [center]="center"
+      [zoom]="zoom"
+      [options]="mapOptions"
+    >
+      <!-- Markers will be added in Phase 2 -->
+    </google-map>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="charts-page">
+  <div class="controls">
+    @for (type of crimeTypes; track type) {
+      <button
+        class="btn"
+        [class.btn-danger]="selectedType === type"
+        [class.btn-outline-light]="selectedType !== type"
+        (click)="selectCrimeType(type)"
+      >
+        {{ getLabel(type) }}
+      </button>
+    }
+  </div>
+
+  @if (showIntro) {
+    <div class="intro">
+      <h2>NYC Historical Crime Data</h2>
+      <p>
+        Select a crime category above to view trends from 2000 to 2013.
+        Charts are rendered with D3.js.
+      </p>
+    </div>
+  }
+
+  <div #chartContainer class="chart-container"></div>
+</div>
