@@ -1,23 +1,33 @@
 <div class="charts-page">
-  <div class="controls">
-    @for (type of crimeTypes; track type) {
-      <button
-        class="btn"
-        [class.btn-danger]="selectedType === type"
-        [class.btn-outline-light]="selectedType !== type"
-        (click)="selectCrimeType(type)"
-      >
-        {{ getLabel(type) }}
-      </button>
-    }
-  </div>
+  @if (loading) {
+    <div class="loading">Loading chart data...</div>
+  }
 
-  @if (showIntro) {
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  @if (!loading && !error) {
+    <div class="controls">
+      @for (entry of yearlyTotals; track entry.type) {
+        <button
+          class="btn"
+          [class.btn-danger]="selectedType === entry.type"
+          [class.btn-outline-light]="selectedType !== entry.type"
+          (click)="selectCrimeType(entry.type)"
+        >
+          {{ entry.name }}
+        </button>
+      }
+    </div>
+  }
+
+  @if (showIntro && !loading && !error) {
     <div class="intro">
       <h2>NYC Historical Crime Data</h2>
       <p>
         Select a crime category above to view trends from 2000 to 2013.
-        Charts are rendered with D3.js.
+        Charts are rendered with D3.js. Data served from the backend API.
       </p>
     </div>
   }

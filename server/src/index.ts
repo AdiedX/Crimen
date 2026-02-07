@@ -1,13 +1,23 @@
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 import mongoose from 'mongoose';
 import { config } from './config/env.js';
 import crimeRoutes from './routes/crime.routes.js';
 
 const app = express();
 
-// Middleware
+// Security headers
+app.use(helmet());
+
+// Request logging
+app.use(morgan(config.env === 'production' ? 'combined' : 'dev'));
+
+// CORS — allow Angular dev server
 app.use(cors());
+
+// Body parsing
 app.use(express.json());
 
 // Routes
@@ -31,7 +41,7 @@ async function start(): Promise<void> {
 
     app.listen(config.port, config.ip, () => {
       console.log(
-        `Server listening on ${config.ip}:${config.port} [${config.env}]`
+        `Server listening on ${config.ip}:${config.port} [${config.env}]`,
       );
     });
   } catch (err) {

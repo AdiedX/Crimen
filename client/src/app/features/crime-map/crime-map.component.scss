@@ -37,6 +37,31 @@
   position: relative;
 }
 
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  .form-label {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 0;
+  }
+}
+
+.pagination-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+.pagination-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .loading-overlay {
   position: absolute;
   inset: 0;

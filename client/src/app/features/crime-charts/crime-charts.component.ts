@@ -3,56 +3,19 @@ import {
   ElementRef,
   ViewChild,
   AfterViewInit,
+  OnInit,
   OnDestroy,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as d3 from 'd3';
-
-/** Hardcoded historical data — will move to backend API in Phase 1. */
-const CHART_DATA: Record<string, { title: string; name: string; data: number[] }> = {
-  burglaries: {
-    title: 'Burglaries (2000 - 2013)',
-    data: [38352, 32763, 31275, 29110, 26976, 24117, 23143, 21762, 20725, 19430, 18600, 18720, 19168, 17429],
-    name: 'BURGLARIES',
-  },
-  murders: {
-    title: 'Murders (2000 - 2013)',
-    data: [673, 649, 587, 597, 570, 539, 596, 496, 523, 471, 536, 515, 419, 335],
-    name: 'MURDERS',
-  },
-  felonyAssaults: {
-    title: 'Felony Assaults (2000 - 2013)',
-    data: [25924, 23453, 21147, 19139, 18622, 17750, 17309, 17493, 16284, 16773, 16956, 18482, 19381, 20297],
-    name: 'FELONY ASSAULTS',
-  },
-  rapes: {
-    title: 'Rapes (2000 - 2013)',
-    data: [2068, 1981, 2144, 2070, 1905, 1858, 1525, 1351, 1299, 1205, 1373, 1420, 1445, 1378],
-    name: 'RAPES',
-  },
-  robberies: {
-    title: 'Robberies (2000 - 2013)',
-    data: [32562, 28202, 27229, 25989, 24373, 24722, 23739, 21809, 22401, 18601, 19486, 19717, 20144, 19128],
-    name: 'ROBBERIES',
-  },
-  grandLarcenies: {
-    title: 'Grand Larcenies (2000 - 2013)',
-    data: [49631, 46329, 45771, 46751, 48763, 48243, 46625, 44924, 44242, 39580, 37835, 38501, 42497, 45368],
-    name: 'GRAND LARCENIES',
-  },
-  GLA: {
-    title: 'Grand Larcenies of Motor Vehicles (2000 - 2013)',
-    data: [35442, 29531, 26656, 23413, 20884, 18246, 15745, 13174, 12482, 10670, 10329, 9314, 8093, 7400],
-    name: 'GRAND LARCENIES OF MOTOR VEHICLES',
-  },
-};
-
-const YEARS = Array.from({ length: 14 }, (_, i) => 2000 + i);
+import { CrimeService } from '../../core/services/crime.service';
+import { YearlyTotal } from '../../core/models/crime.model';
 
 /**
- * Crime Charts component — D3 bar chart replacing the legacy Highcharts implementation.
+ * Crime Charts component — D3 bar chart replacing the legacy Highcharts.
  *
- * Phase 0: Basic working D3 bar chart with crime type selection.
+ * Phase 1: Data fetched from /api/crimes/yearly-totals instead of hardcoded.
  * Phase 3: Enhanced interactivity, transitions, tooltips, responsive resize.
  */
 @Component({
@@ -62,14 +25,32 @@ const YEARS = Array.from({ length: 14 }, (_, i) => 2000 + i);
   templateUrl: './crime-charts.component.html',
   styleUrl: './crime-charts.component.scss',
 })
-export class CrimeChartsComponent implements AfterViewInit, OnDestroy {
+export class CrimeChartsComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('chartContainer') chartContainer!: ElementRef<HTMLDivElement>;
 
-  readonly crimeTypes = Object.keys(CHART_DATA);
+  private readonly crimeService = inject(CrimeService);
+
+  yearlyTotals: YearlyTotal[] = [];
   selectedType: string | null = null;
   showIntro = true;
+  loading = true;
+  error: string | null = null;
 
   private resizeObserver?: ResizeObserver;
+
+  ngOnInit(): void {
+    this.crimeService.getYearlyTotals().subscribe({
+      next: (data) => {
+        this.yearlyTotals = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Failed to load yearly totals:', err);
+        this.error = 'Failed to load chart data from server.';
+        this.loading = false;
+      },
+    });
+  }
 
   ngAfterViewInit(): void {
     this.resizeObserver = new ResizeObserver(() => {
@@ -90,14 +71,19 @@ export class CrimeChartsComponent implements AfterViewInit, OnDestroy {
     this.renderChart(type);
   }
 
-  getLabel(type: string): string {
-    return CHART_DATA[type].name;
+  private findEntry(type: string): YearlyTotal | undefined {
+    return this.yearlyTotals.find((t) => t.type === type);
   }
 
   private renderChart(type: string): void {
     const container = this.chartContainer.nativeElement;
-    const entry = CHART_DATA[type];
-    const dataset = YEARS.map((year, i) => ({ year, count: entry.data[i] }));
+    const entry = this.findEntry(type);
+    if (!entry) return;
+
+    const dataset = entry.years.map((year, i) => ({
+      year,
+      count: entry.data[i],
+    }));
 
     // Clear previous chart
     d3.select(container).selectAll('*').remove();
@@ -128,7 +114,7 @@ export class CrimeChartsComponent implements AfterViewInit, OnDestroy {
     // Scales
     const x = d3
       .scaleBand<number>()
-      .domain(YEARS)
+      .domain(entry.years)
       .range([0, width])
       .padding(0.2);
 

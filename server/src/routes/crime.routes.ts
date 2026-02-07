@@ -1,12 +1,19 @@
 import { Router } from 'express';
-import { getCrimeData, getCrimeStats } from '../controllers/crime.controller.js';
+import {
+  getCrimeData,
+  getCrimes,
+  getCrimeStats,
+  getYearlyTotals,
+} from '../controllers/crime.controller.js';
 
 const router = Router();
 
 // Legacy endpoint (backward-compatible with AngularJS app)
 router.get('/getCrimeData', getCrimeData);
 
-// New endpoints for modernized frontend
+// Modern endpoints
+router.get('/crimes', getCrimes);
 router.get('/crimes/stats', getCrimeStats);
+router.get('/crimes/yearly-totals', getYearlyTotals);
 
 export default router;

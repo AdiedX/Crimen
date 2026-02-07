@@ -13,6 +13,48 @@
       />
       <small class="text-muted">Address search coming in Phase 2</small>
     </div>
+
+    <!-- Crime type filter -->
+    <div class="filter-group">
+      <label for="crimeTypeFilter" class="form-label">Filter by type</label>
+      <select
+        id="crimeTypeFilter"
+        class="form-select form-select-sm"
+        [(ngModel)]="selectedType"
+        (ngModelChange)="onFilterChange()"
+      >
+        <option value="">All types</option>
+        @for (t of crimeTypeOptions; track t) {
+          <option [value]="t">{{ t }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Pagination info & controls -->
+    @if (!loading && totalRecords > 0) {
+      <div class="pagination-info">
+        <small>
+          {{ crimes.length }} of {{ totalRecords }} records
+          (page {{ currentPage }}/{{ totalPages }})
+        </small>
+        <div class="pagination-controls">
+          <button
+            class="btn btn-sm btn-outline-light"
+            [disabled]="currentPage <= 1"
+            (click)="goToPage(currentPage - 1)"
+          >
+            Prev
+          </button>
+          <button
+            class="btn btn-sm btn-outline-light"
+            [disabled]="currentPage >= totalPages"
+            (click)="goToPage(currentPage + 1)"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    }
   </aside>
 
   <div class="map-wrapper">

@@ -29,3 +29,17 @@
   width: 100%;
   min-height: 400px;
 }
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #ff6b6b;
+  font-size: 1rem;
+}
